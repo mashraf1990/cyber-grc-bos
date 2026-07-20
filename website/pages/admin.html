@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Portal — M.A.A. Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#f5f7fa; }
+a { color:#1A5C9E; text-decoration:none; }
+a:hover { color:#2576C9; }
+
+/* ===== LOGIN SCREEN ===== */
+.login-screen {
+  display:flex; align-items:center; justify-content:center;
+  min-height:100vh; background:linear-gradient(135deg,#0A1628 0%,#1A5C9E 100%);
+  padding:24px;
+}
+.login-box {
+  background:#fff; border-radius:16px; padding:48px; max-width:400px; width:100%;
+  box-shadow:0 24px 64px rgba(0,0,0,0.3);
+}
+.login-box h1 { font-size:1.5rem; font-weight:700; text-align:center; margin-bottom:8px; color:#0D1B2A; }
+.login-box p { text-align:center; color:#6c757d; font-size:0.9rem; margin-bottom:32px; }
+.login-input {
+  width:100%; padding:14px 16px; border:1px solid #e0e0e0; border-radius:8px;
+  font-family:inherit; font-size:0.9rem; margin-bottom:12px; outline:none;
+  transition:border-color 0.2s;
+}
+.login-input:focus { border-color:#1A5C9E; box-shadow:0 0 0 3px rgba(26,92,158,0.1); }
+.login-btn {
+  width:100%; padding:14px; background:#1A5C9E; color:#fff; border:none;
+  border-radius:8px; font-weight:600; font-size:1rem; cursor:pointer;
+  transition:background 0.2s; font-family:inherit;
+}
+.login-btn:hover { background:#2576C9; }
+.login-error { color:#D1453B; font-size:0.85rem; text-align:center; margin-top:12px; display:none; }
+.login-hint { text-align:center; font-size:0.8rem; color:#8D96A0; margin-top:16px; }
+.login-hint code { background:#f0f0f0; padding:2px 6px; border-radius:4px; font-size:0.75rem; }
+
+/* ===== ADMIN LAYOUT ===== */
+.admin-screen { display:none; }
+.admin-screen.active { display:flex; min-height:100vh; }
+.sidebar {
+  width:260px; min-height:100vh; background:#0A1628; color:#fff;
+  display:flex; flex-direction:column; flex-shrink:0;
+}
+.sidebar-header {
+  padding:24px; border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.sidebar-header h2 { font-size:1.1rem; font-weight:700; }
+.sidebar-header p { font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:4px; }
+.sidebar-nav { flex:1; padding:12px; overflow-y:auto; }
+.sidebar-nav button {
+  display:block; width:100%; text-align:left; padding:10px 16px; margin-bottom:2px;
+  background:none; border:none; color:rgba(255,255,255,0.5); cursor:pointer;
+  border-radius:8px; font-size:0.85rem; font-weight:500; transition:all 0.2s;
+  font-family:inherit;
+}
+.sidebar-nav button:hover { color:#fff; background:rgba(255,255,255,0.08); }
+.sidebar-nav button.active { color:#fff; background:rgba(255,255,255,0.12); font-weight:600; }
+.sidebar-nav .section-label {
+  font-size:0.65rem; color:rgba(255,255,255,0.3); padding:16px 16px 6px;
+  text-transform:uppercase; letter-spacing:1px; font-weight:700;
+}
+.sidebar-footer {
+  padding:12px; border-top:1px solid rgba(255,255,255,0.08);
+}
+.sidebar-footer button {
+  width:100%; padding:10px; background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.6);
+  border:1px solid rgba(255,255,255,0.1); border-radius:8px; cursor:pointer;
+  font-size:0.8rem; transition:all 0.2s; font-family:inherit;
+}
+.sidebar-footer button:hover { background:rgba(255,255,255,0.1); color:#fff; }
+.main {
+  flex:1; padding:32px; overflow-y:auto; background:#f5f7fa;
+}
+
+/* ===== HEADER ===== */
+.main-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #e9ecef;
+}
+.main-header h1 { font-size:1.4rem; font-weight:700; color:#0D1B2A; }
+.main-header .meta { color:#6c757d; font-size:0.85rem; display:flex; align-items:center; gap:16px; }
+.main-header .user-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 12px; border-radius:100px; font-size:0.75rem; font-weight:600;
+}
+.user-badge.admin { background:#1A5C9E; color:#fff; }
+.user-badge.subscriber { background:#2E8B57; color:#fff; }
+
+/* ===== SECTIONS ===== */
+.admin-section { display:none; }
+.admin-section.active { display:block; }
+
+/* ===== CARDS ===== */
+.card-group {
+  background:#fff; border-radius:12px; padding:24px; margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+.card-group h3 {
+  font-size:0.85rem; font-weight:700; color:#6c757d; text-transform:uppercase;
+  letter-spacing:1px; margin-bottom:16px;
+}
+.card-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:16px; }
+.field { margin-bottom:12px; }
+.field label { display:block; font-size:0.8rem; font-weight:600; color:#495057; margin-bottom:4px; }
+.field input, .field select, .field textarea {
+  width:100%; padding:10px 12px; border:1px solid #e0e0e0; border-radius:6px;
+  font-family:inherit; font-size:0.9rem; outline:none; transition:border-color 0.2s;
+  background:#fff; color:#0D1B2A;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color:#1A5C9E; }
+.field textarea { resize:vertical; min-height:70px; }
+
+/* ===== STATS ROW ===== */
+.stats-row { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:12px; margin-bottom:24px; }
+.stat-card {
+  background:#fff; border-radius:10px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+.stat-card h4 { font-size:0.7rem; color:#6c757d; text-transform:uppercase; letter-spacing:1px; }
+.stat-card .num { font-size:1.8rem; font-weight:800; margin-top:8px; display:block; }
+.stat-card .num.blue { color:#1A5C9E; }
+.stat-card .num.green { color:#2E8B57; }
+.stat-card .num.orange { color:#E88D2A; }
+
+/* ===== BUTTONS ===== */
+.btn { display:inline-flex; align-items:center; gap:6px; padding:8px 20px;
+  border-radius:6px; font-weight:600; font-size:0.85rem; cursor:pointer;
+  border:none; font-family:inherit; transition:all 0.2s; }
+.btn-primary { background:#1A5C9E; color:#fff; }
+.btn-primary:hover { background:#2576C9; }
+.btn-danger { background:#D1453B; color:#fff; }
+.btn-danger:hover { background:#b53a32; }
+.btn-outline { background:transparent; border:1px solid #e0e0e0; color:#495057; }
+.btn-outline:hover { border-color:#1A5C9E; color:#1A5C9E; }
+.btn-sm { padding:6px 14px; font-size:0.8rem; }
+.mt-12 { margin-top:12px; }
+.mb-8 { margin-bottom:8px; }
+
+/* ===== ITEM LIST ===== */
+.item-list { display:flex; flex-direction:column; gap:8px; }
+.item-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 16px; background:#f8f9fa; border-radius:8px;
+  border:1px solid #e9ecef;
+}
+.item-row .info { flex:1; }
+.item-row .info strong { display:block; font-size:0.9rem; }
+.item-row .info span { color:#6c757d; font-size:0.8rem; }
+.item-row .actions { display:flex; gap:6px; }
+
+/* ===== USERS TABLE ===== */
+.users-table { width:100%; border-collapse:collapse; }
+.users-table th {
+  text-align:left; font-size:0.75rem; color:#6c757d; text-transform:uppercase;
+  letter-spacing:1px; padding:10px 12px; border-bottom:2px solid #e9ecef;
+}
+.users-table td { padding:12px; border-bottom:1px solid #f0f0f0; font-size:0.9rem; }
+.users-table td .status-badge {
+  display:inline-block; padding:2px 10px; border-radius:100px;
+  font-size:0.75rem; font-weight:600;
+}
+.status-badge.active { background:#d4edda; color:#155724; }
+.status-badge.pending { background:#fff3cd; color:#856404; }
+.status-badge.suspended { background:#f8d7da; color:#721c24; }
+
+/* ===== SUBSCRIPTION PLANS ===== */
+.subscription-plans { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.sub-plan {
+  background:#fff; border:2px solid #e9ecef; border-radius:12px; padding:24px;
+  text-align:center; transition:all 0.2s;
+}
+.sub-plan:hover { border-color:#1A5C9E; }
+.sub-plan.featured { border-color:#1A5C9E; background:#f8fbff; }
+.sub-plan h3 { font-size:1.1rem; font-weight:700; margin-bottom:8px; }
+.sub-plan .price { font-size:2rem; font-weight:800; color:#0D1B2A; margin-bottom:4px; }
+.sub-plan .price span { font-size:0.9rem; font-weight:400; color:#6c757d; }
+.sub-plan .period { color:#6c757d; font-size:0.85rem; margin-bottom:16px; }
+.sub-plan ul { list-style:none; text-align:left; font-size:0.85rem; }
+.sub-plan ul li { padding:6px 0; color:#495057; }
+.sub-plan ul li::before { content:"✓ "; color:#2E8B57; font-weight:700; }
+.sub-plan .btn { margin-top:16px; width:100%; justify-content:center; padding:12px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:768px) {
+  .admin-screen.active { flex-direction:column; }
+  .sidebar { width:100%; min-height:auto; }
+  .sidebar-nav { display:flex; overflow-x:auto; padding:8px 12px; }
+  .sidebar-nav button { white-space:nowrap; flex-shrink:0; }
+  .sidebar-nav .section-label { display:none; }
+  .main { padding:16px; }
+  .card-grid { grid-template-columns:1fr; }
+  .subscription-plans { grid-template-columns:1fr; }
+  .page-stats { flex-wrap:wrap; }
+  .users-table { font-size:0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== LOGIN SCREEN ===== -->
+<div class="login-screen" id="loginScreen">
+<div class="login-box">
+<h1>M.A.A. Admin Portal</h1>
+<p>Sign in to manage your consulting platform</p>
+<input type="text" class="login-input" id="loginUser" placeholder="Username" autocomplete="off">
+<input type="password" class="login-input" id="loginPass" placeholder="Password">
+<button class="login-btn" id="loginBtn2">Sign In</button>
+<div class="login-error" id="loginError">Invalid credentials. Please try again.</div>
+<div class="login-hint">
+  <strong>Admin:</strong> <code>admin</code> / <code>admin123</code><br>
+  <strong>Demo Subscriber:</strong> <code>demo</code> / <code>demo123</code>
+</div>
+</div>
+</div>
+
+<!-- ===== ADMIN SCREEN ===== -->
+<div class="admin-screen" id="adminScreen">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<div class="sidebar-header">
+<h2>M.A.A. Admin</h2>
+<p id="userRoleName">Admin</p>
+</div>
+<nav class="sidebar-nav" id="sidebarNav">
+<div class="section-label">Main</div>
+<button class="active" data-section="dashboard">Dashboard</button>
+
+<div class="section-label">Landing Page Content</div>
+<button data-section="hero">Hero Section</button>
+<button data-section="about">About Section</button>
+<button data-section="services">Services</button>
+<button data-section="frameworks">Frameworks</button>
+<button data-section="industries">Industries</button>
+<button data-section="outcomes">Outcomes</button>
+<button data-section="methodology">Methodology</button>
+<button data-section="credentials">Credentials</button>
+<button data-section="caseStudies">Case Studies</button>
+<button data-section="testimonials">Testimonials</button>
+<button data-section="insights">Insights</button>
+<button data-section="faq">FAQ</button>
+<button data-section="contact">Contact Info</button>
+<button data-section="footer">Footer</button>
+
+<div class="section-label">Users</div>
+<button data-section="users" id="usersNavBtn">Manage Users</button>
+<button data-section="subscriptions">Subscriptions</button>
+
+<div class="section-label">Settings</div>
+<button data-section="settings">Site Settings</button>
+</nav>
+<div class="sidebar-footer">
+<button id="logoutBtn">&larr; Sign Out</button>
+<button id="backToSite" style="margin-top:6px;">&larr; Back to Site</button>
+</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+<div class="main-header">
+<div>
+<h1 id="sectionTitle">Dashboard</h1>
+</div>
+<div class="meta">
+<span id="userBadge" class="user-badge admin">Admin</span>
+<span id="timestamp"></span>
+</div>
+</div>
+
+<!-- ===== SECTION: DASHBOARD ===== -->
+<div class="admin-section active" id="sec-dashboard">
+<div class="stats-row">
+<div class="stat-card"><h4>Landing Sections</h4><span class="num blue">16</span></div>
+<div class="stat-card"><h4>Active Services</h4><span class="num blue" id="svcCount">17</span></div>
+<div class="stat-card"><h4>Case Studies</h4><span class="num green" id="csCount">6</span></div>
+<div class="stat-card"><h4>Testimonials</h4><span class="num orange" id="testCount">3</span></div>
+<div class="stat-card"><h4>Subscribers</h4><span class="num blue" id="subCount">0</span></div>
+</div>
+<div class="card-group">
+<h3>Quick Actions</h3>
+<div class="card-grid" style="grid-template-columns:repeat(auto-fill, minmax(200px,1fr));">
+<button class="btn btn-primary" onclick="navigateTo('hero')">Edit Hero</button>
+<button class="btn btn-primary" onclick="navigateTo('services')">Manage Services</button>
+<button class="btn btn-primary" onclick="navigateTo('caseStudies')">Manage Cases</button>
+<button class="btn btn-primary" onclick="navigateTo('users')">Manage Users</button>
+<button class="btn btn-outline" onclick="navigateTo('subscriptions')">View Plans</button>
+</div>
+</div>
+<div class="card-group">
+<h3>Recent Activity</h3>
+<p style="color:#6c757d; font-size:0.9rem;" id="activityLog">No recent activity logged. Changes are saved locally.</p>
+</div>
+</div>
+
+<!-- ===== SECTION: HERO ===== -->
+<div class="admin-section" id="sec-hero">
+<div class="card-group">
+<h3>Hero Title & Headline</h3>
+<div class="card-grid">
+<div class="field"><label>Badge Text</label><input class="admin-input" data-key="heroBadge" value="Principal Cybersecurity & GRC Consultant"></div>
+<div class="field"><label>Headline (first line)</label><input class="admin-input" data-key="heroTitleLine1" value="Cybersecurity"></div>
+<div class="field"><label>Headline (accent line)</label><input class="admin-input" data-key="heroTitleLine2" value="That Means Business."></div>
+<div class="field"><label>Subtitle</label><textarea class="admin-input" data-key="heroSub" rows="2">Enterprise governance, risk, and compliance consulting for organizations that treat security as a competitive advantage — not a checkbox.</textarea></div>
+</div>
+</div>
+<div class="card-group">
+<h3>Hero Stats</h3>
+<div class="card-grid">
+<div class="field"><label>Stat 1 — Number</label><select class="admin-input" data-key="stat1num"><option selected>10+</option><option>15+</option><option>20+</option></select></div>
+<div class="field"><label>Stat 1 — Label</label><input class="admin-input" data-key="stat1label" value="Years Experience"></div>
+<div class="field"><label>Stat 2 — Number</label><select class="admin-input" data-key="stat2num"><option selected>25+</option><option>30+</option><option>35+</option></select></div>
+<div class="field"><label>Stat 2 — Label</label><input class="admin-input" data-key="stat2label" value="Frameworks"></div>
+<div class="field"><label>Stat 3 — Value</label><input class="admin-input" data-key="stat3val" value="5"></div>
+<div class="field"><label>Stat 3 — Label</label><input class="admin-input" data-key="stat3label" value="Countries"></div>
+<div class="field"><label>Compliance Score</label><input class="admin-input" data-key="complianceScore" value="84" type="number" min="0" max="100"></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: ABOUT ===== -->
+<div class="admin-section" id="sec-about">
+<div class="card-group">
+<h3>About Text</h3>
+<div class="card-grid">
+<div class="field"><label>Section Label</label><input class="admin-input" data-key="aboutLabel" value="About"></div>
+<div class="field"><label>Title</label><input class="admin-input" data-key="aboutTitle" value="Turning Compliance Into Competitive Advantage"></div>
+<div class="field" style="grid-column:1/-1;"><label>Paragraph 1</label><textarea class="admin-input" data-key="aboutP1" rows="3">I help organizations solve their most complex cybersecurity and compliance challenges. With more than a decade of experience across banking, government, healthcare, and technology, I bring a rare combination: deep technical knowledge and executive communication skills.</textarea></div>
+<div class="field" style="grid-column:1/-1;"><label>Paragraph 2</label><textarea class="admin-input" data-key="aboutP2" rows="3">My work spans 5 countries — Saudi Arabia, UAE, Egypt, USA, and Canada — and covers the full spectrum of GRC: from policy development and risk management to technical security architecture and audit readiness.</textarea></div>
+<div class="field" style="grid-column:1/-1;"><label>Paragraph 3</label><textarea class="admin-input" data-key="aboutP3" rows="2">I do not sell checklists. I build programs that reduce risk, enable growth, and earn the trust of regulators, auditors, and boards.</textarea></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: SERVICES ===== -->
+<div class="admin-section" id="sec-services">
+<div class="card-group">
+<h3>Add New Service</h3>
+<div class="card-grid">
+<div class="field"><label>Service Name</label><input id="newSvcName"></div>
+<div class="field"><label>Framework Badge</label><input id="newSvcFramework" placeholder="e.g. PCI DSS v4.0.1"></div>
+<div class="field"><label>Description</label><input id="newSvcDesc"></div>
+<div class="field"><label>Tags (comma separated)</label><input id="newSvcTags" placeholder="Gap, Evidence, Audit"></div>
+<div class="field"><label>Tab Category</label><select id="newSvcTab"><option>compliance</option><option>risk</option><option>technical</option><option>training</option><option>vciso</option></select></div>
+</div>
+<button class="btn btn-primary mt-12" onclick="addService()">Add Service</button>
+</div>
+<div class="card-group">
+<h3>Current Services</h3>
+<div class="item-list" id="servicesList"><p style="color:#6c757d;">Loading...</p></div>
+</div>
+</div>
+
+<!-- ===== SECTION: FRAMEWORKS ===== -->
+<div class="admin-section" id="sec-frameworks">
+<div class="card-group">
+<h3>Section Content</h3>
+<div class="card-grid">
+<div class="field"><label>Section Label</label><input class="admin-input" data-key="fwLabel" value="Framework Expertise"></div>
+<div class="field"><label>Title</label><input class="admin-input" data-key="fwTitle" value="Every Major Standard, One Integrated Approach"></div>
+<div class="field" style="grid-column:1/-1;"><label>Description</label><textarea class="admin-input" data-key="fwDesc" rows="2">I do not silo compliance. I build unified programs that satisfy multiple frameworks simultaneously — reducing duplication, cost, and confusion.</textarea></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: INDUSTRIES ===== -->
+<div class="admin-section" id="sec-industries">
+<div class="card-group">
+<h3>Industry Cards Content</h3>
+<div class="card-grid">
+<div class="field"><label>Section Label</label><input class="admin-input" data-key="indLabel" value="Who I Serve"></div>
+<div class="field"><label>Title</label><input class="admin-input" data-key="indTitle" value="Industry-Specific Expertise"></div>
+<div class="field"><label>Banking Description</label><textarea class="admin-input" data-key="indBankDesc" rows="2">PCI DSS, SAMA CSF, CBE regulations. Former bank supervisor. Led SNB compliance program.</textarea></div>
+<div class="field"><label>FinTech Description</label><textarea class="admin-input" data-key="indFintechDesc" rows="2">PCI DSS, SOC 2, ISO 27001. Startup-friendly, pragmatic compliance for fast-moving companies.</textarea></div>
+<div class="field"><label>Healthcare Description</label><textarea class="admin-input" data-key="indHealthDesc" rows="2">HIPAA, PCI DSS, SOC 2. Security reviews for digital health platforms and physiotherapy SaaS.</textarea></div>
+<div class="field"><label>Government Description</label><textarea class="admin-input" data-key="indGovDesc" rows="2">NCA ECC, NIST CSF, ISO 27001. Architecture review of the Diriyah national project in Saudi Arabia.</textarea></div>
+<div class="field"><label>SaaS Description</label><textarea class="admin-input" data-key="indSaaSDesc" rows="2">SOC 2, ISO 27001, NIST. Evidence-driven, engineering-friendly compliance for tech organizations.</textarea></div>
+<div class="field"><label>Insurance Description</label><textarea class="admin-input" data-key="indInsureDesc" rows="2">SAMA CSF, PCI DSS, ISO 27001. Helped an insurance firm achieve SAMA compliance and regulatory approval.</textarea></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: OUTCOMES ===== -->
+<div class="admin-section" id="sec-outcomes">
+<div class="card-group">
+<h3>Outcomes Section</h3>
+<div class="card-grid">
+<div class="field"><label>Section Label</label><input class="admin-input" data-key="outLabel" value="What to Expect"></div>
+<div class="field"><label>Title</label><input class="admin-input" data-key="outTitle" value="Business Outcomes, Not Just Reports"></div>
+<div class="field" style="grid-column:1/-1;"><label>Description</label><textarea class="admin-input" data-key="outDesc" rows="2">Every engagement is measured against the outcomes that matter to your business.</textarea></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: METHODOLOGY ===== -->
+<div class="admin-section" id="sec-methodology">
+<div class="card-group">
+<h3>Methodology Section</h3>
+<div class="card-grid">
+<div class="field"><label>Section Label</label><input class="admin-input" data-key="methodLabel" value="How I Work"></div>
+<div class="field"><label>Title</label><input class="admin-input" data-key="methodTitle" value="The GRCA Methodology"></div>
+<div class="field" style="grid-column:1/-1;"><label>Description</label><textarea class="admin-input" data-key="methodDesc" rows="2">A proven, repeatable framework refined over a decade of engagements across industries and geographies.</textarea></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: CREDENTIALS ===== -->
+<div class="admin-section" id="sec-credentials">
+<div class="card-group">
+<h3>Credentials Content</h3>
+<div class="card-grid">
+<div class="field" style="grid-column:1/-1;"><label>Credential Bullets (one per line)</label><textarea class="admin-input" data-key="credBullets" rows="6">10+ years of GRC consulting across 5 countries
+Former bank supervisor — National Bank of Egypt
+EC-Council Certified Instructor
+Curriculum developer for institutions in Canada
+Multi-framework integration specialist
+Board-fluent communicator</textarea></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: CASE STUDIES ===== -->
+<div class="admin-section" id="sec-caseStudies">
+<div class="card-group">
+<h3>Add Case Study</h3>
+<div class="card-grid">
+<div class="field"><label>Title</label><input id="newCaseTitle"></div>
+<div class="field"><label>Tag</label><input id="newCaseTag" placeholder="PCI DSS"></div>
+<div class="field"><label>Location</label><input id="newCaseLoc" placeholder="Saudi Arabia"></div>
+<div class="field" style="grid-column:1/-1;"><label>Description</label><input id="newCaseDesc"></div>
+<div class="field"><label>Result 1 — Number</label><input id="newCaseR1num" placeholder="60%"></div>
+<div class="field"><label>Result 1 — Label</label><input id="newCaseR1label" placeholder="Gap Reduction"></div>
+<div class="field"><label>Result 2 — Number</label><input id="newCaseR2num" placeholder="100%"></div>
+<div class="field"><label>Result 2 — Label</label><input id="newCaseR2label" placeholder="Audit Readiness"></div>
+</div>
+<button class="btn btn-primary mt-12" onclick="addCaseStudy()">Add Case Study</button>
+</div>
+<div class="card-group">
+<h3>Current Case Studies</h3>
+<div class="item-list" id="caseStudiesList"><p style="color:#6c757d;">Loading...</p></div>
+</div>
+</div>
+
+<!-- ===== SECTION: TESTIMONIALS ===== -->
+<div class="admin-section" id="sec-testimonials">
+<div class="card-group">
+<h3>Add Testimonial</h3>
+<div class="card-grid">
+<div class="field" style="grid-column:1/-1;"><label>Quote</label><textarea id="newTestQuote" rows="3"></textarea></div>
+<div class="field"><label>Name / Title</label><input id="newTestName"></div>
+<div class="field"><label>Organization</label><input id="newTestOrg"></div>
+<div class="field"><label>Location</label><input id="newTestLoc"></div>
+</div>
+<button class="btn btn-primary mt-12" onclick="addTestimonial()">Add Testimonial</button>
+</div>
+<div class="card-group">
+<h3>Current Testimonials</h3>
+<div class="item-list" id="testimonialsList"><p style="color:#6c757d;">Loading...</p></div>
+</div>
+</div>
+
+<!-- ===== SECTION: INSIGHTS ===== -->
+<div class="admin-section" id="sec-insights">
+<div class="card-group">
+<h3>Insights Content</h3>
+<div class="card-grid">
+<div class="field"><label>Section Label</label><input class="admin-input" data-key="insightLabel" value="Insights"></div>
+<div class="field"><label>Section Title</label><input class="admin-input" data-key="insightTitle" value="Cybersecurity Resources & Analysis"></div>
+<div class="field" style="grid-column:1/-1;"><label>Description</label><textarea class="admin-input" data-key="insightDesc" rows="2">Practical guidance on compliance strategy, risk management, and governance best practices.</textarea></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: FAQ ===== -->
+<div class="admin-section" id="sec-faq">
+<div class="card-group">
+<h3>FAQ Content</h3>
+<div class="card-grid">
+<div class="field"><label>Section Label</label><input class="admin-input" data-key="faqLabel" value="FAQ"></div>
+<div class="field"><label>Title</label><input class="admin-input" data-key="faqTitle" value="Frequently Asked Questions"></div>
+</div>
+</div>
+<div class="card-group">
+<h3>Add FAQ</h3>
+<div class="card-grid">
+<div class="field" style="grid-column:1/-1;"><label>Question</label><input id="newFaqQ"></div>
+<div class="field" style="grid-column:1/-1;"><label>Answer</label><textarea id="newFaqA" rows="3"></textarea></div>
+</div>
+<button class="btn btn-primary mt-12" onclick="addFaq()">Add FAQ</button>
+</div>
+<div class="card-group">
+<h3>Current FAQs</h3>
+<div class="item-list" id="faqList"><p style="color:#6c757d;">Loading...</p></div>
+</div>
+</div>
+
+<!-- ===== SECTION: CONTACT ===== -->
+<div class="admin-section" id="sec-contact">
+<div class="card-group">
+<h3>Contact Information</h3>
+<div class="card-grid">
+<div class="field"><label>Section Label</label><input class="admin-input" data-key="contactLabel" value="Contact"></div>
+<div class="field"><label>Title</label><input class="admin-input" data-key="contactTitle" value="Let's Start a Conversation"></div>
+<div class="field" style="grid-column:1/-1;"><label>Description</label><textarea class="admin-input" data-key="contactDesc" rows="2">Whether you need a gap assessment, full compliance program, or executive advisory — I'm ready to help.</textarea></div>
+<div class="field"><label>Email</label><input class="admin-input" data-key="contactEmail" value="contact@domain.com"></div>
+<div class="field"><label>Phone</label><input class="admin-input" data-key="contactPhone" value="+xxx-xxx-xxxx"></div>
+<div class="field"><label>Location</label><input class="admin-input" data-key="contactLocation" value="Riyadh, Saudi Arabia"></div>
+<div class="field"><label>Availability</label><input class="admin-input" data-key="contactAvail" value="Remote & On-site | MENA & North America"></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: FOOTER ===== -->
+<div class="admin-section" id="sec-footer">
+<div class="card-group">
+<h3>Footer Content</h3>
+<div class="card-grid">
+<div class="field"><label>Brand Name</label><input class="admin-input" data-key="footerBrand" value="M.A.A. Cybersecurity & GRC"></div>
+<div class="field"><label>Tagline</label><input class="admin-input" data-key="tagline" value="Govern with confidence."></div>
+<div class="field" style="grid-column:1/-1;"><label>Description</label><textarea class="admin-input" data-key="footerDesc" rows="2">Enterprise cybersecurity governance, risk, and compliance consulting across the Middle East and North America.</textarea></div>
+<div class="field"><label>LinkedIn URL</label><input class="admin-input" data-key="linkedin" value="#"></div>
+<div class="field"><label>Copyright Year</label><input class="admin-input" data-key="copyright" value="2024-2025"></div>
+</div>
+</div>
+</div>
+
+<!-- ===== SECTION: USERS (Admin Only) ===== -->
+<div class="admin-section" id="sec-users">
+<div class="card-group">
+<h3>Add New User</h3>
+<div class="card-grid">
+<div class="field"><label>Full Name</label><input id="newUserName"></div>
+<div class="field"><label>Email</label><input id="newUserEmail" type="email"></div>
+<div class="field"><label>Username</label><input id="newUserUsername" autocomplete="off"></div>
+<div class="field"><label>Password</label><input id="newUserPassword" type="password" autocomplete="off"></div>
+<div class="field"><label>Role</label><select id="newUserRole"><option value="subscriber">Subscriber</option><option value="admin">Admin</option></select></div>
+<div class="field"><label>Plan</label><select id="newUserPlan"><option value="">None</option><option value="basic">Basic</option><option value="professional">Professional</option><option value="enterprise">Enterprise</option></select></div>
+</div>
+<button class="btn btn-primary mt-12" onclick="addUser()">Add User</button>
+</div>
+<div class="card-group">
+<h3>User Management</h3>
+<p style="color:#6c757d; font-size:0.9rem; margin-bottom:16px;">Manage subscribers, set roles, approve portfolios.</p>
+<table class="users-table" id="usersTable">
+<thead><tr><th>User</th><th>Email</th><th>Role</th><th>Plan</th><th>Status</th><th>Actions</th></tr></thead>
+<tbody id="usersBody"><tr><td colspan="6" style="text-align:center;color:#6c757d;">No users yet</td></tr></tbody>
+</table>
+</div>
+</div>
+
+<!-- ===== SECTION: SUBSCRIPTIONS ===== -->
+<div class="admin-section" id="sec-subscriptions">
+<div class="card-group">
+<h3>Subscription Plans</h3>
+<div class="subscription-plans">
+<div class="sub-plan">
+<h3>Basic</h3>
+<div class="price">$29<span>/mo</span></div>
+<div class="period">Single profile listing</div>
+<ul>
+<li>Portfolio listing in directory</li>
+<li>Basic profile page</li>
+<li>Contact form enabled</li>
+<li>Standard support</li>
+</ul>
+<button class="btn btn-outline">Edit Plan</button>
+</div>
+<div class="sub-plan featured">
+<h3>Professional</h3>
+<div class="price">$79<span>/mo</span></div>
+<div class="period">Full portfolio management</div>
+<ul>
+<li>Everything in Basic</li>
+<li>Custom branding</li>
+<li>Service showcase (up to 10)</li>
+<li>Testimonials display</li>
+<li>Analytics dashboard</li>
+<li>Priority support</li>
+</ul>
+<button class="btn btn-primary">Edit Plan</button>
+</div>
+<div class="sub-plan">
+<h3>Enterprise</h3>
+<div class="price">$199<span>/mo</span></div>
+<div class="period">Multi-profile & team</div>
+<ul>
+<li>Everything in Professional</li>
+<li>Up to 5 team profiles</li>
+<li>Admin panel access</li>
+<li>Custom domain</li>
+<li>API access</li>
+<li>Dedicated account manager</li>
+</ul>
+<button class="btn btn-outline">Edit Plan</button>
+</div>
+</div>
+</div>
+<div class="card-group">
+<h3>Add Subscriber Manually</h3>
+<div class="card-grid" style="grid-template-columns:1fr 1fr 1fr auto;align-items:end;">
+<div class="field"><label>Name</label><input id="manualSubName"></div>
+<div class="field"><label>Email</label><input id="manualSubEmail" type="email"></div>
+<div class="field"><label>Plan</label><select id="manualSubPlan"><option value="basic">Basic</option><option value="professional">Professional</option><option value="enterprise">Enterprise</option></select></div>
+<button class="btn btn-primary" onclick="addManualSubscriber()">Add</button>
+</div>
+</div>
+<div class="card-group">
+<h3>Subscribers</h3>
+<div class="item-list" id="subscribersList"><p style="color:#6c757d;">No active subscribers.</p></div>
+</div>
+</div>
+
+<!-- ===== SECTION: SETTINGS ===== -->
+<div class="admin-section" id="sec-settings">
+<div class="card-group">
+<h3>Site Configuration</h3>
+<div class="card-grid">
+<div class="field"><label>Default Theme</label><select onchange="setSiteTheme(this.value)"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+<div class="field"><label>Default Language</label><select onchange="localStorage.setItem('lang',this.value)"><option value="en">English</option><option value="ar">Arabic</option></select></div>
+<div class="field"><label>Maintenance Mode</label><select id="maintenanceMode"><option value="off">Off</option><option value="on">On</option></select></div>
+<div class="field"><label>Site Title (SEO)</label><input class="admin-input" data-key="seoTitle" value="Mohamed Ashraf Abd El-Aziz — Principal Cybersecurity & GRC Consultant"></div>
+<div class="field"><label>Meta Description</label><textarea class="admin-input" data-key="seoDesc" rows="2">10+ years delivering enterprise cybersecurity governance, risk & compliance programs for banks, governments, healthcare, and SaaS across 5 countries.</textarea></div>
+</div>
+<button class="btn btn-primary mt-12" onclick="saveAllSettings()">Save All Settings</button>
+<button class="btn btn-danger mt-12" style="margin-left:8px;" onclick="clearAllData()">Clear All Data</button>
+</div>
+</div>
+
+</div><!-- /main -->
+</div><!-- /admin-screen -->
+
+<script>
+// ============================================================
+// AUTHENTICATION
+// ============================================================
+const USERS_KEY = 'maa_users';
+const SESSION_KEY = 'maa_session';
+const SUBSCRIPTIONS_KEY = 'maa_subscribers';
+
+function initUsers() {
+  if (!localStorage.getItem(USERS_KEY)) {
+    const defaultUsers = [
+      { id: 1, username: 'admin', password: 'admin123', role: 'admin', name: 'Mohamed Ashraf', email: 'admin@domain.com', plan: 'admin', status: 'active' },
+      { id: 2, username: 'demo', password: 'demo123', role: 'subscriber', name: 'Demo User', email: 'demo@domain.com', plan: 'professional', status: 'active' }
+    ];
+    localStorage.setItem(USERS_KEY, JSON.stringify(defaultUsers));
+  }
+  if (!localStorage.getItem(SUBSCRIPTIONS_KEY)) {
+    localStorage.setItem(SUBSCRIPTIONS_KEY, JSON.stringify([]));
+  }
+}
+initUsers();
+
+function authenticate(username, password) {
+  const users = JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+  return users.find(u => u.username === username && u.password === password) || null;
+}
+
+function login(username, password) {
+  const user = authenticate(username, password);
+  if (user) {
+    localStorage.setItem(SESSION_KEY, JSON.stringify({ userId: user.id, username: user.username, role: user.role, name: user.name }));
+    return user;
+  }
+  return null;
+}
+
+function getSession() {
+  try { return JSON.parse(localStorage.getItem(SESSION_KEY)); } catch { return null; }
+}
+
+function logout() {
+  localStorage.removeItem(SESSION_KEY);
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('adminScreen').classList.remove('active');
+}
+
+function requireAuth() {
+  const session = getSession();
+  if (session) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminScreen').classList.add('active');
+    document.getElementById('userRoleName').textContent = session.role === 'admin' ? 'Administrator' : 'Subscriber';
+    const badge = document.getElementById('userBadge');
+    badge.textContent = session.role === 'admin' ? 'Admin' : 'Subscriber';
+    badge.className = 'user-badge ' + (session.role === 'admin' ? 'admin' : 'subscriber');
+    // Hide admin-only sections for non-admins
+    const usersNav = document.getElementById('usersNavBtn');
+    if (usersNav) usersNav.style.display = session.role === 'admin' ? 'block' : 'none';
+    const settingsBtn = document.querySelector('.sidebar-nav button[data-section="settings"]');
+    if (settingsBtn) settingsBtn.style.display = session.role === 'admin' ? 'block' : 'none';
+    loadAllData();
+  }
+}
+
+// ============================================================
+// LOGIN FORM
+// ============================================================
+document.getElementById('loginBtn2').addEventListener('click', () => {
+  const user = document.getElementById('loginUser').value;
+  const pass = document.getElementById('loginPass').value;
+  const result = login(user, pass);
+  if (result) {
+    document.getElementById('loginError').style.display = 'none';
+    requireAuth();
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+  }
+});
+document.getElementById('loginPass').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('loginBtn2').click();
+});
+
+document.getElementById('logoutBtn').addEventListener('click', logout);
+document.getElementById('backToSite').addEventListener('click', () => {
+  window.location.href = '../index.html';
+});
+
+// ============================================================
+// SIDEBAR NAVIGATION
+// ============================================================
+const sectionTitles = {
+  dashboard: 'Dashboard', hero: 'Hero Section', about: 'About Section',
+  services: 'Services Manager', frameworks: 'Frameworks Section', industries: 'Industries Section',
+  outcomes: 'Business Outcomes', methodology: 'Methodology', credentials: 'Credentials',
+  caseStudies: 'Case Studies', testimonials: 'Testimonials', insights: 'Insights',
+  faq: 'FAQ Manager', contact: 'Contact Information', footer: 'Footer',
+  users: 'User Management', subscriptions: 'Subscription Plans & Users',
+  settings: 'Site Settings'
+};
+
+function navigateTo(section) {
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.sidebar-nav button').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById('sec-' + section);
+  if (sec) sec.classList.add('active');
+  const btn = document.querySelector(`.sidebar-nav button[data-section="${section}"]`);
+  if (btn) btn.classList.add('active');
+  document.getElementById('sectionTitle').textContent = sectionTitles[section] || 'Section';
+}
+
+document.querySelectorAll('.sidebar-nav button[data-section]').forEach(btn => {
+  btn.addEventListener('click', () => navigateTo(btn.dataset.section));
+});
+
+// ============================================================
+// DATA MANAGEMENT
+// ============================================================
+function save(key, value) {
+  localStorage.setItem('admin_' + key, value);
+  // Dispatch custom event so main site can listen
+  window.dispatchEvent(new CustomEvent('maa-admin-update', { detail: { key, value } }));
+}
+
+function load(key, fallback) {
+  return localStorage.getItem('admin_' + key) || fallback || '';
+}
+
+function loadAllData() {
+  // Load all admin-input values from localStorage
+  document.querySelectorAll('.admin-input').forEach(input => {
+    const key = input.dataset.key;
+    if (key) {
+      const saved = localStorage.getItem('admin_' + key);
+      if (saved !== null) input.value = saved;
+      input.addEventListener('change', () => save(key, input.value));
+      input.addEventListener('blur', () => save(key, input.value));
+    }
+  });
+  refreshLists();
+}
+
+// ============================================================
+// SERVICES CRUD
+// ============================================================
+function getServices() { return JSON.parse(localStorage.getItem('customServices') || '[]'); }
+
+function addService() {
+  const svc = {
+    name: document.getElementById('newSvcName').value,
+    framework: document.getElementById('newSvcFramework').value,
+    desc: document.getElementById('newSvcDesc').value,
+    tags: document.getElementById('newSvcTags').value,
+    tab: document.getElementById('newSvcTab').value,
+    id: Date.now()
+  };
+  if (!svc.name || !svc.desc) { alert('Name and description are required.'); return; }
+  const list = getServices();
+  list.push(svc);
+  localStorage.setItem('customServices', JSON.stringify(list));
+  clearServiceForm();
+  refreshLists();
+  alert('Service added: ' + svc.name);
+}
+
+function deleteService(id) {
+  let list = getServices();
+  list = list.filter(s => s.id !== id);
+  localStorage.setItem('customServices', JSON.stringify(list));
+  refreshLists();
+}
+
+function clearServiceForm() {
+  ['newSvcName','newSvcFramework','newSvcDesc','newSvcTags'].forEach(id => document.getElementById(id).value = '');
+}
+
+// ============================================================
+// CASE STUDIES CRUD
+// ============================================================
+function getCaseStudies() { return JSON.parse(localStorage.getItem('customCaseStudies') || '[]'); }
+
+function addCaseStudy() {
+  const cs = {
+    title: document.getElementById('newCaseTitle').value,
+    tag: document.getElementById('newCaseTag').value,
+    location: document.getElementById('newCaseLoc').value,
+    desc: document.getElementById('newCaseDesc').value,
+    r1num: document.getElementById('newCaseR1num').value,
+    r1label: document.getElementById('newCaseR1label').value,
+    r2num: document.getElementById('newCaseR2num').value,
+    r2label: document.getElementById('newCaseR2label').value,
+    id: Date.now()
+  };
+  if (!cs.title) { alert('Title is required.'); return; }
+  const list = getCaseStudies();
+  list.push(cs);
+  localStorage.setItem('customCaseStudies', JSON.stringify(list));
+  ['newCaseTitle','newCaseTag','newCaseLoc','newCaseDesc','newCaseR1num','newCaseR1label','newCaseR2num','newCaseR2label'].forEach(id => document.getElementById(id).value = '');
+  refreshLists();
+  alert('Case study added: ' + cs.title);
+}
+
+function deleteCaseStudy(id) {
+  let list = getCaseStudies();
+  list = list.filter(c => c.id !== id);
+  localStorage.setItem('customCaseStudies', JSON.stringify(list));
+  refreshLists();
+}
+
+// ============================================================
+// TESTIMONIALS CRUD
+// ============================================================
+function getTestimonials() { return JSON.parse(localStorage.getItem('customTestimonials') || '[]'); }
+
+function addTestimonial() {
+  const t = {
+    quote: document.getElementById('newTestQuote').value,
+    name: document.getElementById('newTestName').value,
+    org: document.getElementById('newTestOrg').value,
+    location: document.getElementById('newTestLoc').value,
+    id: Date.now()
+  };
+  if (!t.quote || !t.name) { alert('Quote and name are required.'); return; }
+  const list = getTestimonials();
+  list.push(t);
+  localStorage.setItem('customTestimonials', JSON.stringify(list));
+  ['newTestQuote','newTestName','newTestOrg','newTestLoc'].forEach(id => document.getElementById(id).value = '');
+  refreshLists();
+  alert('Testimonial added');
+}
+
+function deleteTestimonial(id) {
+  let list = getTestimonials();
+  list = list.filter(t => t.id !== id);
+  localStorage.setItem('customTestimonials', JSON.stringify(list));
+  refreshLists();
+}
+
+// ============================================================
+// FAQ CRUD
+// ============================================================
+function getFaqs() { return JSON.parse(localStorage.getItem('customFaqs') || '[]'); }
+
+function addFaq() {
+  const f = {
+    q: document.getElementById('newFaqQ').value,
+    a: document.getElementById('newFaqA').value,
+    id: Date.now()
+  };
+  if (!f.q || !f.a) { alert('Both question and answer are required.'); return; }
+  const list = getFaqs();
+  list.push(f);
+  localStorage.setItem('customFaqs', JSON.stringify(list));
+  document.getElementById('newFaqQ').value = '';
+  document.getElementById('newFaqA').value = '';
+  refreshLists();
+  alert('FAQ added');
+}
+
+function deleteFaq(id) {
+  let list = getFaqs();
+  list = list.filter(f => f.id !== id);
+  localStorage.setItem('customFaqs', JSON.stringify(list));
+  refreshLists();
+}
+
+// ============================================================
+// SUBSCRIBERS
+// ============================================================
+function getSubscribers() { return JSON.parse(localStorage.getItem(SUBSCRIPTIONS_KEY) || '[]'); }
+
+function addSubscriber(name, email, plan) {
+  const subs = getSubscribers();
+  subs.push({ id: Date.now(), name, email, plan, status: 'active', joined: new Date().toISOString() });
+  localStorage.setItem(SUBSCRIPTIONS_KEY, JSON.stringify(subs));
+  refreshLists();
+}
+
+function approveSubscriber(id) {
+  const subs = getSubscribers();
+  const sub = subs.find(s => s.id === id);
+  if (sub) { sub.status = 'active'; localStorage.setItem(SUBSCRIPTIONS_KEY, JSON.stringify(subs)); refreshLists(); }
+}
+
+function suspendSubscriber(id) {
+  const subs = getSubscribers();
+  const sub = subs.find(s => s.id === id);
+  if (sub) { sub.status = 'suspended'; localStorage.setItem(SUBSCRIPTIONS_KEY, JSON.stringify(subs)); refreshLists(); }
+}
+
+// ============================================================
+// REFRESH ALL LISTS
+// ============================================================
+function refreshLists() {
+  // Services
+  const svcs = getServices();
+  const svcList = document.getElementById('servicesList');
+  if (svcList) {
+    if (svcs.length === 0) svcList.innerHTML = '<p style="color:#6c757d;">No services added yet.</p>';
+    else svcList.innerHTML = svcs.map(s => `
+      <div class="item-row">
+        <div class="info"><strong>${s.name}</strong><span>${s.framework || ''} — ${s.desc}</span></div>
+        <div class="actions"><button class="btn btn-danger btn-sm" onclick="deleteService(${s.id})">Delete</button></div>
+      </div>
+    `).join('');
+  }
+  document.getElementById('svcCount').textContent = svcs.length + 17; // default + custom
+
+  // Case Studies
+  const css = getCaseStudies();
+  const csList = document.getElementById('caseStudiesList');
+  if (csList) {
+    if (css.length === 0) csList.innerHTML = '<p style="color:#6c757d;">No case studies added yet.</p>';
+    else csList.innerHTML = css.map(c => `
+      <div class="item-row">
+        <div class="info"><strong>${c.title}</strong><span>${c.tag || ''} — ${c.location || ''}</span></div>
+        <div class="actions"><button class="btn btn-danger btn-sm" onclick="deleteCaseStudy(${c.id})">Delete</button></div>
+      </div>
+    `).join('');
+  }
+  document.getElementById('csCount').textContent = css.length + 6;
+
+  // Testimonials
+  const tests = getTestimonials();
+  const testList = document.getElementById('testimonialsList');
+  if (testList) {
+    if (tests.length === 0) testList.innerHTML = '<p style="color:#6c757d;">No testimonials yet.</p>';
+    else testList.innerHTML = tests.map(t => `
+      <div class="item-row">
+        <div class="info"><strong>${t.name}</strong><span>${t.org || ''} ${t.location || ''}</span></div>
+        <div class="actions"><button class="btn btn-danger btn-sm" onclick="deleteTestimonial(${t.id})">Delete</button></div>
+      </div>
+    `).join('');
+  }
+  document.getElementById('testCount').textContent = tests.length + 3;
+
+  // FAQs
+  const faqs = getFaqs();
+  const faqList = document.getElementById('faqList');
+  if (faqList) {
+    if (faqs.length === 0) faqList.innerHTML = '<p style="color:#6c757d;">No FAQs added yet.</p>';
+    else faqList.innerHTML = faqs.map(f => `
+      <div class="item-row">
+        <div class="info"><strong>${f.q}</strong></div>
+        <div class="actions"><button class="btn btn-danger btn-sm" onclick="deleteFaq(${f.id})">Delete</button></div>
+      </div>
+    `).join('');
+  }
+
+  // Subscribers
+  const subs = getSubscribers();
+  const subCount = document.getElementById('subCount');
+  if (subCount) subCount.textContent = subs.length;
+  const subsList = document.getElementById('subscribersList');
+  if (subsList) {
+    if (subs.length === 0) subsList.innerHTML = '<p style="color:#6c757d;">No active subscribers.</p>';
+    else subsList.innerHTML = subs.map(s => `
+      <div class="item-row">
+        <div class="info"><strong>${s.name}</strong><span>${s.email} — ${s.plan} (${s.status})</span></div>
+        <div class="actions">
+          ${s.status !== 'active' ? `<button class="btn btn-primary btn-sm" onclick="approveSubscriber(${s.id})">Approve</button>` : ''}
+          ${s.status !== 'suspended' ? `<button class="btn btn-danger btn-sm" onclick="suspendSubscriber(${s.id})">Suspend</button>` : ''}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Users table
+  const users = JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+  const usersBody = document.getElementById('usersBody');
+  if (usersBody) {
+    if (users.length === 0) usersBody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#6c757d;">No users</td></tr>';
+    else usersBody.innerHTML = users.map(u => `
+      <tr>
+        <td>${u.name}</td>
+        <td>${u.email}</td>
+        <td>${u.role}</td>
+        <td>${u.plan || '-'}</td>
+        <td><span class="status-badge ${u.status}">${u.status}</span></td>
+        <td><button class="btn btn-danger btn-sm" onclick="deleteUser(${u.id})">Remove</button></td>
+      </tr>
+    `).join('');
+  }
+}
+
+// ============================================================
+// USER MANAGEMENT (Admin only)
+// ============================================================
+function addUser() {
+  const name = document.getElementById('newUserName').value.trim();
+  const email = document.getElementById('newUserEmail').value.trim();
+  const username = document.getElementById('newUserUsername').value.trim();
+  const password = document.getElementById('newUserPassword').value.trim();
+  const role = document.getElementById('newUserRole').value;
+  const plan = document.getElementById('newUserPlan').value;
+  if (!name || !username || !password) { alert('Name, username, and password are required.'); return; }
+  let users = JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+  if (users.find(u => u.username === username)) { alert('Username already exists.'); return; }
+  users.push({
+    id: Date.now(), username, password, role, name, email, plan: plan || '-', status: 'active'
+  });
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  ['newUserName','newUserEmail','newUserUsername','newUserPassword'].forEach(id => document.getElementById(id).value = '');
+  refreshLists();
+  alert('User added: ' + name);
+}
+
+function deleteUser(id) {
+  const session = getSession();
+  const users = JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+  const target = users.find(u => u.id === id);
+  if (!target) return;
+  if (session && target.username === session.username) {
+    alert('Cannot delete your own account.');
+    return;
+  }
+  let filtered = users.filter(u => u.id !== id);
+  localStorage.setItem(USERS_KEY, JSON.stringify(filtered));
+  refreshLists();
+}
+
+function addManualSubscriber() {
+  const name = document.getElementById('manualSubName').value.trim();
+  const email = document.getElementById('manualSubEmail').value.trim();
+  const plan = document.getElementById('manualSubPlan').value;
+  if (!name || !email) { alert('Name and email are required.'); return; }
+  addSubscriber(name, email, plan);
+  document.getElementById('manualSubName').value = '';
+  document.getElementById('manualSubEmail').value = '';
+  alert('Subscriber added: ' + name);
+}
+
+// ============================================================
+// SETTINGS
+// ============================================================
+function setSiteTheme(theme) {
+  localStorage.setItem('theme', theme);
+  alert('Theme set to ' + theme + '. Refresh main site to see changes.');
+}
+
+function saveAllSettings() {
+  document.querySelectorAll('.admin-input').forEach(input => {
+    const key = input.dataset.key;
+    if (key) save(key, input.value);
+  });
+  alert('All settings saved.');
+}
+
+function clearAllData() {
+  if (confirm('This will clear all custom content. Proceed?')) {
+    const keys = Object.keys(localStorage).filter(k => k.startsWith('admin_'));
+    keys.forEach(k => localStorage.removeItem(k));
+    localStorage.removeItem('customServices');
+    localStorage.removeItem('customCaseStudies');
+    localStorage.removeItem('customTestimonials');
+    localStorage.removeItem('customFaqs');
+    localStorage.removeItem('maa_subscribers');
+    alert('Data cleared. Reloading...');
+    location.reload();
+  }
+}
+
+// ============================================================
+// TIMESTAMP
+// ============================================================
+const ts = document.getElementById('timestamp');
+if (ts) {
+  function upd() { ts.textContent = new Date().toLocaleString(); }
+  upd(); setInterval(upd, 1000);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+// Handle subscription from main site: check URL params for auto-add
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('action') === 'subscribe') {
+  const name = urlParams.get('name');
+  const email = urlParams.get('email');
+  const plan = urlParams.get('plan') || 'basic';
+  if (name && email) {
+    addSubscriber(name, email, plan);
+  }
+}
+
+requireAuth();
+
+// Expose functions globally for inline onclick
+window.navigateTo = navigateTo;
+window.addService = addService;
+window.deleteService = deleteService;
+window.addCaseStudy = addCaseStudy;
+window.deleteCaseStudy = deleteCaseStudy;
+window.addTestimonial = addTestimonial;
+window.deleteTestimonial = deleteTestimonial;
+window.addFaq = addFaq;
+window.deleteFaq = deleteFaq;
+window.addSubscriber = addSubscriber;
+window.approveSubscriber = approveSubscriber;
+window.suspendSubscriber = suspendSubscriber;
+window.addUser = addUser;
+window.deleteUser = deleteUser;
+window.addManualSubscriber = addManualSubscriber;
+window.setSiteTheme = setSiteTheme;
+window.saveAllSettings = saveAllSettings;
+window.clearAllData = clearAllData;
+</script>
+</body>
+</html>
