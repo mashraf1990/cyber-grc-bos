@@ -334,14 +334,20 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.25; letter-spacing: -0.02e
 .hero-stat-num { font-size: 1.6rem; font-weight: 800; color: #FFFFFF; }
 .hero-stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); font-weight: 500; }
 
-.hero-social { display: flex; gap: 12px; margin-bottom: 32px; }
-.hero-social-link {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.5); transition: all 0.2s; text-decoration: none;
+.hero-credibility {
+  display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 32px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
-.hero-social-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.cred-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; color: rgba(255,255,255,0.55); font-weight: 500;
+}
+.cred-icon {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(74,222,128,0.15); color: #4ADE80;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; font-weight: 700; flex-shrink: 0;
+}
 
 /* Hero Right — Profile Photo */
 .hero-visual { display: flex; justify-content: center; align-items: center; }
@@ -455,6 +461,9 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.25; letter-spacing: -0.02e
 .timeline-content h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
 .timeline-org { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
 .timeline-content p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+.timeline-item-engagements { }
+.timeline-dot-alt { background: var(--accent-light); border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-light); }
+.timeline-item-engagements .timeline-content h4 { font-size: 1rem; color: var(--accent); margin-bottom: 6px; }
 [dir="rtl"] .timeline { padding-left: 0; padding-right: 32px; }
 [dir="rtl"] .timeline::before { left: auto; right: 11px; }
 [dir="rtl"] .timeline-dot { left: auto; right: -26px; }
@@ -941,8 +950,8 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.25; letter-spacing: -0.02e
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
   .hero-title { font-size: 2rem; }
-  .hero-stat-num { font-size: 1.3rem; }
-  .hero-stats { gap: 20px; }
+  .hero-credibility { gap: 6px 12px; margin-top: 24px; padding-top: 18px; }
+  .cred-item { font-size: 0.78rem; }
   .service-grid { grid-template-columns: 1fr; }
   .service-tabs { flex-direction: column; align-items: stretch; }
   .ind-grid { grid-template-columns: 1fr; }
@@ -966,8 +975,7 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.25; letter-spacing: -0.02e
 
 @media (max-width: 480px) {
   .hero-title { font-size: 1.7rem; }
-  .hero-stats { gap: 14px; }
-  .hero-stat-num { font-size: 1.1rem; }
+  .hero-credibility { gap: 4px 10px; margin-top: 20px; padding-top: 14px; }
   .modal { padding: 22px; }
   .fw-grid { grid-template-columns: repeat(2, 1fr); }
   .trusted-logos { gap: 10px; }
