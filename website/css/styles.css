@@ -343,61 +343,25 @@ h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.25; letter-spacing: -0.02e
 }
 .hero-social-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-/* Hero Right — Profile Card */
+/* Hero Right — Profile Photo */
 .hero-visual { display: flex; justify-content: center; align-items: center; }
-.hero-card {
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-xl);
-  padding: 32px; width: 100%; max-width: 340px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-  position: relative;
+.hero-photo-frame {
+  width: 280px; height: 340px; border-radius: var(--radius-xl);
+  overflow: hidden; position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  border: 2px solid rgba(255,255,255,0.08);
 }
-.hero-card::before {
-  content: ''; position: absolute; inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255,255,255,0.05), transparent 50%);
-  pointer-events: none;
+.hero-photo-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
 }
-
-.hero-card-header {
-  display: flex; align-items: center; gap: 8px;
-  color: rgba(255,255,255,0.6); font-size: 0.82rem;
-  font-weight: 500; margin-bottom: 20px;
-}
-.hero-card-header svg { opacity: 0.6; }
-.hero-card-score {
-  display: flex; justify-content: space-between; align-items: baseline;
-  margin-bottom: 10px;
-}
-.hero-score-label { color: rgba(255,255,255,0.45); font-size: 0.85rem; }
-.hero-score-value { font-size: 2.8rem; font-weight: 800; color: #4ADE80; line-height: 1; }
-.hero-card-bar {
-  height: 5px; background: rgba(255,255,255,0.08); border-radius: 4px;
-  overflow: hidden; margin-bottom: 18px;
-}
-.hero-card-bar-fill {
-  height: 100%; border-radius: 4px;
-  background: linear-gradient(90deg, #4ADE80, #22C55E);
-  transition: width 1.5s ease;
-}
-.hero-card-metrics {
-  display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px;
-}
-.hero-card-metrics div {
-  display: flex; align-items: center; gap: 8px;
-  color: rgba(255,255,255,0.55); font-size: 0.82rem;
-}
-.metric-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-.dot-green { background: #4ADE80; }
-.dot-yellow { background: #FBBF24; }
-.dot-red { background: #F87171; }
-.hero-card-footer {
-  color: rgba(255,255,255,0.35); font-size: 0.72rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  padding-top: 14px;
+.hero-photo-badge {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 5px 16px; border-radius: var(--radius-full);
+  color: #fff; font-size: 0.75rem; font-weight: 600;
+  white-space: nowrap;
 }
 
 /* ===== Trusted By ===== */
