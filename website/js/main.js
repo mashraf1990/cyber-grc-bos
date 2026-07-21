@@ -320,6 +320,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // After applying i18n, overlay any admin-edited values
     document.querySelectorAll('[data-edit]').forEach(el => {
+      if (el.tagName === 'IMG') {
+        const saved = localStorage.getItem('admin_navPhoto');
+        if (saved) el.src = saved;
+        return;
+      }
       if (el.dataset.edit) {
         const saved = localStorage.getItem('admin_' + el.dataset.edit);
         if (saved) el.textContent = saved;
@@ -398,6 +403,30 @@ document.addEventListener('DOMContentLoaded', () => {
           ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Done'
           : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Edit';
         document.querySelectorAll('[data-edit]').forEach(el => {
+          if (el.tagName === 'IMG') {
+            el.classList.toggle('editable-active', editMode);
+            if (editMode) {
+              el.onclick = () => {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                input.onchange = (e) => {
+                  const file = e.target.files[0];
+                  if (!file) return;
+                  const reader = new FileReader();
+                  reader.onload = (ev) => {
+                    el.src = ev.target.result;
+                    localStorage.setItem('admin_navPhoto', ev.target.result);
+                  };
+                  reader.readAsDataURL(file);
+                };
+                input.click();
+              };
+            } else {
+              el.onclick = null;
+            }
+            return;
+          }
           el.contentEditable = editMode;
           el.classList.toggle('editable-active', editMode);
           if (!editMode && el.dataset.edit) {
@@ -407,6 +436,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       // Load saved values on page
       document.querySelectorAll('[data-edit]').forEach(el => {
+        if (el.tagName === 'IMG') {
+          const saved = localStorage.getItem('admin_navPhoto');
+          if (saved) el.src = saved;
+          return;
+        }
         const saved = localStorage.getItem('admin_' + el.dataset.edit);
         if (saved) el.innerText = saved;
       });
