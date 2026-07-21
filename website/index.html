@@ -3,20 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohamed Ashraf Abd El-Aziz â€” Principal Cybersecurity & GRC Consultant | PCI DSS | ISO 27001 | SOC 2 | SAMA | NCA</title>
+<title>Mohamed Ashraf Abd El-Aziz — Principal Cybersecurity & GRC Consultant | PCI DSS | ISO 27001 | SOC 2 | SAMA | NCA</title>
 <meta name="description" content="10+ years delivering enterprise cybersecurity governance, risk & compliance programs for banks, governments, healthcare, and SaaS across 5 countries. PCI DSS, ISO 27001, SOC 2, SAMA CSF, NCA ECC.">
 <meta name="keywords" content="Cybersecurity Consultant, GRC Consultant, PCI DSS Consultant, ISO 27001 Consultant, SOC 2 Consultant, SAMA CSF, NCA ECC, Riyadh, Saudi Arabia, vCISO, Risk Management, Compliance">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://domain.com">
-<meta property="og:title" content="Mohamed Ashraf Abd El-Aziz â€” Principal Cybersecurity & GRC Consultant">
-<meta property="og:description" content="Enterprise cybersecurity governance, risk & compliance consulting. 10+ years. 25+ frameworks. 5 countries.">
+<meta property="og:title" content="Mohamed Ashraf Abd El-Aziz — Principal Cybersecurity & GRC Consultant">
+<meta property="og:description" content="Enterprise cybersecurity governance, risk & compliance consulting for financial institutions, SaaS, healthcare, and government.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://domain.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="css/styles.css">
-<!-- Stripe.js for payments -->
-<script src="https://js.stripe.com/v3/" defer></script>
 </head>
 <body>
 
@@ -30,13 +29,12 @@
 <div class="nav-links" id="navLinks" role="menubar">
 <a href="#" class="active" role="menuitem" data-i18n="home">Home</a>
 <a href="#about" role="menuitem" data-i18n="about">About</a>
-<a href="#skills" role="menuitem" data-i18n="skills">Skills</a>
+<a href="#skills" role="menuitem" data-i18n="skills">Competencies</a>
 <a href="#experience" role="menuitem" data-i18n="experience">Engagements</a>
 <a href="#services" role="menuitem" data-i18n="services">Services</a>
 <a href="#industries" role="menuitem" data-i18n="industries">Industries</a>
 <a href="#case-studies" role="menuitem" data-i18n="caseStudies">Case Studies</a>
 <a href="#insights" role="menuitem" data-i18n="insights">Insights</a>
-<a href="#subscription" role="menuitem" data-i18n="plans">Plans</a>
 <a href="#contact" role="menuitem" data-i18n="contact">Contact</a>
 </div>
 <div class="nav-actions">
@@ -44,13 +42,13 @@
 <button class="nav-icon-btn" id="themeToggle" aria-label="Toggle theme">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
 </button>
-<button class="btn btn-primary btn-sm" id="loginBtn" data-i18n="login">Login</button>
+<!-- TODO: Future SaaS login -->
+<button class="btn btn-primary btn-sm" id="loginBtn" data-i18n="login" style="display:none;">Login</button>
 </div>
 <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </div>
 </nav>
 
-<!-- ==================== HERO ==================== -->
 <!-- ==================== HERO ==================== -->
 <section class="hero" id="home">
 <div class="hero-grid-bg"></div>
@@ -58,14 +56,16 @@
 <div class="container hero-container">
 <div class="hero-content">
 <div class="hero-badge" data-i18n="heroBadge" data-edit="heroBadge"><span class="hero-badge-dot"></span> Principal Cybersecurity & GRC Consultant</div>
-<h1 class="hero-title"><span data-edit="heroTitleLine1">Cybersecurity</span> <span class="hero-title-em" data-edit="heroTitleLine2">That Means Business.</span></h1>
-<p class="hero-subtitle" data-i18n="heroSub" data-edit="heroSub">Enterprise governance, risk, and compliance consulting for organizations that treat security as a competitive advantage — not a checkbox.</p>
+<h1 class="hero-title">Cybersecurity & GRC Consulting for <span class="hero-title-em" data-edit="heroTitleLine2">Secure, Compliant, and Resilient</span> Organizations</h1>
+<p class="hero-subtitle" data-i18n="heroSub" data-edit="heroSub">Helping financial institutions, SaaS companies, healthcare organizations, government entities, and enterprises strengthen cybersecurity, manage risk, achieve compliance, and prepare for successful audits.</p>
 <div class="hero-ctas">
-<a href="#services" class="btn btn-primary btn-lg">
+<a href="#contact" class="btn btn-primary btn-lg">
+<span data-i18n="schedule">Book a Consultation</span>
+</a>
+<a href="#services" class="btn btn-outline btn-lg">
 <span data-i18n="explore">Explore Services</span>
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 </a>
-<a href="#contact" class="btn btn-outline btn-lg" data-i18n="schedule">Book a Consultation</a>
 </div>
 <div class="hero-stats">
 <div class="hero-stat">
@@ -73,16 +73,12 @@
 <span class="hero-stat-label" data-edit="stat1label">Years Experience</span>
 </div>
 <div class="hero-stat">
-<span class="hero-stat-num" data-edit="stat2num">25+</span>
-<span class="hero-stat-label" data-edit="stat2label">Frameworks</span>
+<span class="hero-stat-num" data-edit="stat2num">Multi-Framework</span>
+<span class="hero-stat-label" data-edit="stat2label">Expertise</span>
 </div>
 <div class="hero-stat">
 <span class="hero-stat-num" data-edit="stat3val">5</span>
 <span class="hero-stat-label" data-edit="stat3label">Countries</span>
-</div>
-<div class="hero-stat">
-<span class="hero-stat-num" data-edit="stat4num">80%</span>
-<span class="hero-stat-label" data-edit="stat4label">Gap Reduction</span>
 </div>
 </div>
 <div class="hero-social">
@@ -95,26 +91,15 @@
 </div>
 </div>
 <div class="hero-visual">
-<div class="hero-card">
-<div class="hero-card-header" data-edit="heroCardHeader">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-Current Compliance Posture
-</div>
-<div class="hero-card-score">
-<span class="hero-score-label" data-edit="heroScoreLabel">Overall Readiness</span>
-<span class="hero-score-value" data-edit="complianceScore">84%</span>
-</div>
-<div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:84%"></div></div>
-<div class="hero-card-metrics">
-<div data-edit="heroCardMetrics"><span class="metric-dot dot-green"></span> Audit Ready</div>
-<div data-edit="heroCardMetric2"><span class="metric-dot dot-yellow"></span> Needs Improvement</div>
-<div data-edit="heroCardMetric3"><span class="metric-dot dot-red"></span> Critical Gap</div>
-</div>
-<div class="hero-card-footer" data-edit="heroCardFooter">Benchmarked against PCI DSS · ISO 27001 · SOC 2</div>
+<div class="hero-photo-placeholder">
+Professional Portrait
+<span class="hero-photo-note">High-resolution photo to be added</span>
 </div>
 </div>
 </div>
-</section><!-- ==================== TRUSTED BY ==================== -->
+</section>
+
+<!-- ==================== TRUSTED BY ==================== -->
 <section class="trusted-section">
 <div class="container">
 <p class="trusted-label" data-i18n="trustedBy" data-edit="trustedBy">Trusted by leading organizations across the Middle East and North America</p>
@@ -129,7 +114,6 @@ Current Compliance Posture
 </section>
 
 <!-- ==================== ABOUT ==================== -->
-<!-- ==================== ABOUT ==================== -->
 <section class="section" id="about">
 <div class="container">
 <div class="about-layout">
@@ -143,19 +127,18 @@ Certified
 </div>
 <div class="about-metrics">
 <div class="about-metric"><span class="about-metric-num" data-edit="aboutMetric1">10+</span><span class="about-metric-label">Years</span></div>
-<div class="about-metric"><span class="about-metric-num" data-edit="aboutMetric2">25+</span><span class="about-metric-label">Frameworks</span></div>
+<div class="about-metric"><span class="about-metric-num" data-edit="aboutMetric2">Multi-Framework</span><span class="about-metric-label">Frameworks & Standards</span></div>
 <div class="about-metric"><span class="about-metric-num" data-edit="aboutMetric3">5</span><span class="about-metric-label">Countries</span></div>
 </div>
 </div>
 <div class="about-content">
 <span class="section-label" data-i18n="aboutLabel" data-edit="aboutLabel">About</span>
 <h2 class="section-title" data-i18n="aboutTitle" data-edit="aboutTitle">Turning Compliance Into Competitive Advantage</h2>
-<p class="about-text" data-i18n="aboutP1" data-edit="aboutP1">I help organizations solve their most complex cybersecurity and compliance challenges. With more than a decade of experience across banking, government, healthcare, and technology, I bring a rare combination: deep technical knowledge and executive communication skills.</p>
-<p class="about-text" data-i18n="aboutP2" data-edit="aboutP2">My work spans 5 countries — Saudi Arabia, UAE, Egypt, USA, and Canada — and covers the full spectrum of GRC: from policy development and risk management to technical security architecture and audit readiness.</p>
-<p class="about-text" data-i18n="aboutP3" data-edit="aboutP3">I do not sell checklists. I build programs that reduce risk, enable growth, and earn the trust of regulators, auditors, and boards.</p>
+<p class="about-text" data-i18n="aboutP1" data-edit="aboutP1">Mohamed Ashraf is a Principal Cybersecurity & Governance, Risk & Compliance (GRC) Consultant with over 10 years of experience delivering cybersecurity, compliance, and risk management solutions across banking, government, healthcare, SaaS, and enterprise environments.</p>
+<p class="about-text" data-i18n="aboutP2" data-edit="aboutP2">He helps organizations strengthen security, manage cyber risk, achieve compliance, and prepare for audits through cybersecurity consulting, technical security assessments, governance programs, policy development, and professional cybersecurity training.</p>
 <div class="about-actions">
-<a href="#case-studies" class="btn btn-primary">
-<span data-i18n="viewWork">View Selected Engagements</span>
+<a href="#contact" class="btn btn-primary">
+<span data-i18n="schedule">Book a Consultation</span>
 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 </a>
 </div>
@@ -163,6 +146,7 @@ Certified
 </div>
 </div>
 </section>
+
 <!-- ==================== SKILLS ==================== -->
 <section class="section skills-section" id="skills">
 <div class="container">
@@ -222,17 +206,17 @@ Certified
 <div class="timeline-date" data-edit="exp1date">2023 — Present</div>
 <div class="timeline-content">
 <h4 data-edit="exp1title">Principal Cybersecurity & GRC Consultant</h4>
-<span class="timeline-org" data-edit="exp1org">M.A.A. Consulting (Independent)</span>
-<p data-edit="exp1desc">Delivering enterprise GRC programs for banking, government, healthcare, and SaaS clients across MENA and North America. Leading PCI DSS, ISO 27001, SOC 2, NIST CSF, SAMA CSF, and NCA ECC engagements.</p>
+<span class="timeline-org" data-edit="exp1org">Independent Consulting</span>
+<p data-edit="exp1desc">Delivering enterprise GRC programs for clients across MENA and North America. Leading PCI DSS, ISO 27001, SOC 2, NIST CSF, SAMA CSF, and NCA ECC engagements for financial institutions, government entities, healthcare organizations, and technology companies.</p>
 </div>
 </div>
 <div class="timeline-item">
 <div class="timeline-dot"></div>
 <div class="timeline-date" data-edit="exp2date">2021 — 2023</div>
 <div class="timeline-content">
-<h4 data-edit="exp2title">PCI DSS Compliance Lead</h4>
+<h4 data-edit="exp2title">PCI DSS Compliance Lead — Consulting Engagement</h4>
 <span class="timeline-org" data-edit="exp2org">Saudi National Bank</span>
-<p data-edit="exp2desc">Led end-to-end PCI DSS compliance program for one of the largest banks in Saudi Arabia. Managed gap analysis, remediation planning, evidence collection, and QSA audit coordination.</p>
+<p data-edit="exp2desc">Led end-to-end PCI DSS compliance program. Managed gap analysis, remediation planning, evidence collection, and QSA audit coordination for one of the largest banks in Saudi Arabia.</p>
 </div>
 </div>
 <div class="timeline-item">
@@ -249,8 +233,17 @@ Certified
 <div class="timeline-date" data-edit="exp4date">2014 — 2018</div>
 <div class="timeline-content">
 <h4 data-edit="exp4title">IT Security Analyst</h4>
-<span class="timeline-org" data-edit="exp4org">Multiple Organizations</span>
-<p data-edit="exp4desc">Security architecture reviews, configuration audits, vulnerability assessments, and policy development across banking and government sectors.</p>
+<span class="timeline-org" data-edit="exp4org">Multiple Organizations - Banking & Government</span>
+<p data-edit="exp4desc">Performed security architecture reviews, configuration audits, vulnerability assessments, and policy development across banking and government sectors.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-date" data-edit="exp5date"></div>
+<div class="timeline-content">
+<h4 data-edit="exp5title">EC-Council Certified Instructor</h4>
+<span class="timeline-org" data-edit="exp5org">Professional Training & Curriculum Development</span>
+<p data-edit="exp5desc">Designed and delivered cybersecurity curricula for universities and professional training programs in Canada and the Middle East.</p>
 </div>
 </div>
 </div>
@@ -263,64 +256,64 @@ Certified
 <div class="section-header">
 <span class="section-label" data-i18n="servicesLabel" data-edit="servicesLabel">What I Do</span>
 <h2 class="section-title" data-i18n="servicesTitle" data-edit="servicesTitle">Cybersecurity & Compliance Consulting</h2>
-<p class="section-desc" data-i18n="servicesDesc" data-edit="servicesDesc">Every engagement is tailored to your industry, regulatory environment, and business objectives. These are the outcomes I deliver â€” not a menu of products.</p>
+<p class="section-desc" data-i18n="servicesDesc" data-edit="servicesDesc">Every engagement is tailored to your industry, regulatory environment, and business objectives. These are the outcomes I deliver — not a menu of products.</p>
 </div>
 
 <div class="service-tabs" role="tablist">
-<button class="service-tab active" data-tab="compliance" role="tab" data-i18n="tabCompliance">Compliance</button>
-<button class="service-tab" data-tab="risk" role="tab" data-i18n="tabRisk">Risk & Governance</button>
-<button class="service-tab" data-tab="technical" role="tab" data-i18n="tabTechnical">Technical Security</button>
+<button class="service-tab active" data-tab="compliance" role="tab" data-i18n="tabCompliance">Compliance & GRC</button>
+<button class="service-tab" data-tab="assessments" role="tab" data-i18n="tabAssessments">Cybersecurity Assessments</button>
+<button class="service-tab" data-tab="documentation" role="tab" data-i18n="tabDocumentation">Documentation & Programs</button>
 <button class="service-tab" data-tab="training" role="tab" data-i18n="tabTraining">Training</button>
 <button class="service-tab" data-tab="vciso" role="tab" data-i18n="tabVCISO">vCISO</button>
 </div>
 
-<!-- Compliance -->
+<!-- Compliance & GRC -->
 <div class="service-panel active" id="panel-compliance">
 <div class="service-grid">
 <div class="service-card" data-service="pci">
 <div class="service-card-top">
 <span class="service-framework">PCI DSS v4.0.1</span>
-<h3 data-i18n="pciTitle">Payment Card Industry Compliance</h3>
+<h3 data-i18n="pciTitle">PCI DSS Compliance</h3>
 <p data-i18n="pciDesc">End-to-end program management covering all 12 requirements. Gap assessment, evidence collection, control testing, and audit readiness for merchants, banks, and FinTechs.</p>
 </div>
 <div class="service-card-bottom">
 <div class="service-tags">
-<span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Gap Analysis</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Evidence Review</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Audit Readiness</span>
+<span data-edit="svcTag_pci1">Gap Analysis</span><span data-edit="svcTag_pci2">Evidence Review</span><span data-edit="svcTag_pci3">Audit Readiness</span>
 </div>
-<a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </div>
 <div class="service-card" data-service="iso">
 <div class="service-card-top">
 <span class="service-framework">ISO 27001:2022</span>
-<h3 data-i18n="isoTitle">ISMS Design & Certification</h3>
+<h3 data-i18n="isoTitle">ISO 27001 Compliance</h3>
 <p data-i18n="isoDesc">Full lifecycle support: gap analysis, ISMS design, risk assessment, Statement of Applicability, internal audit, and certification body liaison.</p>
 </div>
 <div class="service-card-bottom">
-<div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">ISMS</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Internal Audit</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Certification</span></div>
-<a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<div class="service-tags"><span data-edit="svcTag_iso1">ISMS</span><span data-edit="svcTag_iso2">Internal Audit</span><span data-edit="svcTag_iso3">Certification</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </div>
 <div class="service-card" data-service="soc2">
 <div class="service-card-top">
 <span class="service-framework">SOC 2</span>
-<h3 data-i18n="soc2Title">SOC 2 Readiness & Compliance</h3>
+<h3 data-i18n="soc2Title">SOC 2 Readiness</h3>
 <p data-i18n="soc2Desc">Trust Service Criteria mapping, control identification, evidence collection processes, pre-audit testing, and remediation planning for Type I and Type II reports.</p>
 </div>
 <div class="service-card-bottom">
-<div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">TSC Mapping</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Readiness</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Type I/II</span></div>
-<a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<div class="service-tags"><span data-edit="svcTag_soc21">TSC Mapping</span><span data-edit="svcTag_soc22">Readiness</span><span data-edit="svcTag_soc23">Type I/II</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </div>
 <div class="service-card" data-service="nist">
 <div class="service-card-top">
 <span class="service-framework">NIST CSF 2.0</span>
-<h3 data-i18n="nistTitle">NIST Cybersecurity Framework Alignment</h3>
+<h3 data-i18n="nistTitle">NIST CSF Alignment</h3>
 <p data-i18n="nistDesc">Maturity assessment across all 6 functions (Govern, Identify, Protect, Detect, Respond, Recover). Strategic roadmap and control implementation guidance.</p>
 </div>
 <div class="service-card-bottom">
-<div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Maturity</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Roadmap</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Controls</span></div>
-<a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<div class="service-tags"><span data-edit="svcTag_nist1">Maturity</span><span data-edit="svcTag_nist2">Roadmap</span><span data-edit="svcTag_nist3">Controls</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </div>
 <div class="service-card" data-service="sama">
@@ -330,88 +323,153 @@ Certified
 <p data-i18n="samaDesc">Regulatory compliance for Saudi financial institutions. Domain mapping, control testing, and evidence management for SAMA licensing requirements.</p>
 </div>
 <div class="service-card-bottom">
-<div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Financial</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Licensing</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Regulatory</span></div>
-<a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<div class="service-tags"><span data-edit="svcTag_sama1">Financial</span><span data-edit="svcTag_sama2">Licensing</span><span data-edit="svcTag_sama3">Regulatory</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </div>
 <div class="service-card" data-service="nca">
 <div class="service-card-top">
 <span class="service-framework">NCA ECC</span>
-<h3 data-i18n="ncaTitle">NCA Essential Cybersecurity Controls</h3>
+<h3 data-i18n="ncaTitle">NCA ECC Compliance</h3>
 <p data-i18n="ncaDesc">Compliance with Saudi Arabia's National Cybersecurity Authority framework for government entities and critical infrastructure organizations.</p>
 </div>
 <div class="service-card-bottom">
-<div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Government</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Critical Infra</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">NCA</span></div>
-<a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<div class="service-tags"><span data-edit="svcTag_nca1">Government</span><span data-edit="svcTag_nca2">Critical Infra</span><span data-edit="svcTag_nca3">NCA</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </div>
 </div>
 </div>
 
-<!-- Risk & Governance -->
-<div class="service-panel" id="panel-risk">
+<!-- Cybersecurity Assessments -->
+<div class="service-panel" id="panel-assessments">
 <div class="service-grid">
 <div class="service-card">
 <div class="service-card-top">
-<span class="service-framework">ISO 31000 / 27005</span>
-<h3 data-i18n="riskTitle">Cyber Risk Assessment</h3>
-<p data-i18n="riskDesc">Quantitative and qualitative risk analysis. Risk register development, heat mapping, treatment planning, and executive reporting.</p>
-</div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Risk Register</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Treatment</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Reporting</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-</div>
-<div class="service-card">
-<div class="service-card-top">
-<span class="service-framework">Any Framework</span>
-<h3 data-i18n="gapTitle">Gap Assessment</h3>
-<p data-i18n="gapDesc">A-point-in-time comparison of your current state against any target framework. Prioritized findings and a clear remediation roadmap.</p>
-</div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Benchmark</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Priorities</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Roadmap</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-</div>
-<div class="service-card">
-<div class="service-card-top">
-<span class="service-framework">Independent</span>
-<h3 data-i18n="auditTitle">Internal Audit</h3>
-<p data-i18n="auditDesc">Simulate the external auditor's process. Objective, rigorous control testing with findings, ratings, and remediation recommendations.</p>
-</div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Testing</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Findings</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Remediation</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-</div>
-<div class="service-card">
-<div class="service-card-top">
-<span class="service-framework">Full Suite</span>
-<h3 data-i18n="policyTitle">Policy & Documentation</h3>
-<p data-i18n="policyDesc">Comprehensive policy suites, standards, procedures, and guidelines aligned to your chosen framework(s). Practical, enforceable, and audit-ready.</p>
-</div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Policies</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Procedures</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Standards</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-</div>
-</div>
-</div>
-
-<!-- Technical Security -->
-<div class="service-panel" id="panel-technical">
-<div class="service-grid">
-<div class="service-card">
-<div class="service-card-top">
-<span class="service-framework">NIST / CIS</span>
+<span class="service-framework">Architecture</span>
 <h3 data-i18n="archTitle">Security Architecture Review</h3>
 <p data-i18n="archDesc">Comprehensive review of network, cloud, application, and physical architectures. Threat modeling, gap identification, and prioritized recommendations.</p>
 </div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Network</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Cloud</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Threat Model</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_arch1">Network</span><span data-edit="svcTag_arch2">Cloud</span><span data-edit="svcTag_arch3">Threat Model</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
 </div>
 <div class="service-card">
 <div class="service-card-top">
-<span class="service-framework">Configuration</span>
-<h3 data-i18n="configTitle">Security Configuration Review</h3>
-<p data-i18n="configDesc">Firewall rule set review, network diagram validation, user access & privileged access review, and security baseline configuration assessment.</p>
+<span class="service-framework">Network Security</span>
+<h3 data-i18n="netReviewTitle">Network Security Review</h3>
+<p data-i18n="netReviewDesc">Firewall rule set review, network diagram validation, segmentation testing, and security baseline configuration assessment across enterprise networks.</p>
 </div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Firewall</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Access</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Baselines</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_net1">Firewall</span><span data-edit="svcTag_net2">Segmentation</span><span data-edit="svcTag_net3">Baselines</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Vulnerability</span>
+<h3 data-i18n="vulnTitle">Vulnerability Assessment</h3>
+<p data-i18n="vulnDesc">Systematic identification and evaluation of security vulnerabilities across infrastructure, applications, and configurations with prioritized remediation guidance.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_vuln1">Scanning</span><span data-edit="svcTag_vuln2">Prioritization</span><span data-edit="svcTag_vuln3">Remediation</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Access Control</span>
+<h3 data-i18n="accessTitle">Access & Privileged Access Review</h3>
+<p data-i18n="accessDesc">User access and privileged access review including role mapping, separation of duties analysis, and least-privilege optimization across critical systems.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_access1">RBAC</span><span data-edit="svcTag_access2">SoD</span><span data-edit="svcTag_access3">PAM</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Incident Response</span>
+<h3 data-i18n="irReviewTitle">Incident Response Review</h3>
+<p data-i18n="irReviewDesc">Assessment of incident response plans, playbooks, escalation procedures, and tabletop exercise facilitation with improvement recommendations.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_ir1">Playbooks</span><span data-edit="svcTag_ir2">Tabletop</span><span data-edit="svcTag_ir3">Lessons Learned</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
 </div>
 <div class="service-card">
 <div class="service-card-top">
 <span class="service-framework">Resilience</span>
-<h3 data-i18n="bcrTitle">Business Continuity & Incident Response</h3>
-<p data-i18n="bcrDesc">BCP/DR plan review, incident response plan assessment, tabletop exercise facilitation, and improvement recommendations.</p>
+<h3 data-i18n="bcrTitle">Business Continuity Review</h3>
+<p data-i18n="bcrDesc">BCP/DR plan review, business impact analysis, recovery testing validation, and improvement recommendations for organizational resilience.</p>
 </div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">BCP</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">IR</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Tabletop</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_bcr1">BCP</span><span data-edit="svcTag_bcr2">DR</span><span data-edit="svcTag_bcr3">Recovery</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Documentation & Programs -->
+<div class="service-panel" id="panel-documentation">
+<div class="service-grid">
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Full Suite</span>
+<h3 data-i18n="policyTitle">Policy Development</h3>
+<p data-i18n="policyDesc">Comprehensive cybersecurity policy development aligned to your chosen framework(s). Practical, enforceable, and audit-ready documentation suites.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_pol1">Policies</span><span data-edit="svcTag_pol2">Standards</span><span data-edit="svcTag_pol3">Guidelines</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Operational</span>
+<h3 data-i18n="procTitle">Procedure Development</h3>
+<p data-i18n="procDesc">Detailed operational procedures for security operations, incident handling, access management, change control, and compliance monitoring.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_proc1">SOPs</span><span data-edit="svcTag_proc2">Workflows</span><span data-edit="svcTag_proc3">Checklists</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Risk</span>
+<h3 data-i18n="riskRegTitle">Risk Register Development</h3>
+<p data-i18n="riskRegDesc">Quantitative and qualitative risk analysis. Risk register development, heat mapping, treatment planning, and executive reporting.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_rr1">Risk Register</span><span data-edit="svcTag_rr2">Treatment</span><span data-edit="svcTag_rr3">Reporting</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Compliance</span>
+<h3 data-i18n="compDocTitle">Compliance Documentation</h3>
+<p data-i18n="compDocDesc">Evidence collection frameworks, compliance matrices, control mapping documentation, and audit preparation packages for external assessments.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_cd1">Evidence</span><span data-edit="svcTag_cd2">Matrices</span><span data-edit="svcTag_cd3">Mapping</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Incident Response</span>
+<h3 data-i18n="irPlanTitle">Incident Response Plans</h3>
+<p data-i18n="irPlanDesc">Development of incident response plans, escalation procedures, communication templates, and post-incident review frameworks tailored to your organization.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_irp1">IR Plans</span><span data-edit="svcTag_irp2">Escalation</span><span data-edit="svcTag_irp3">Templates</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
 </div>
 </div>
 </div>
@@ -419,21 +477,60 @@ Certified
 <!-- Training -->
 <div class="service-panel" id="panel-training">
 <div class="service-grid">
-<div class="service-card"> 
+<div class="service-card">
 <div class="service-card-top">
-<span class="service-framework">Custom</span>
-<h3 data-i18n="awarenssTitle">Security Awareness & Executive Workshops</h3>
-<p data-i18n="awarenessDesc">Tailored programs for boards, executives, technical teams, and staff. Curriculum design, delivery, phishing simulations, and measurement.</p>
+<span class="service-framework">Organizational</span>
+<h3 data-i18n="awarenessTitle">Security Awareness Programs</h3>
+<p data-i18n="awarenessDesc">Tailored security awareness programs including curriculum design, delivery, phishing simulations, and measurement metrics for staff and technical teams.</p>
 </div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Workshops</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Simulations</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Metrics</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_aw1">Programs</span><span data-edit="svcTag_aw2">Simulations</span><span data-edit="svcTag_aw3">Metrics</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Corporate</span>
+<h3 data-i18n="corpTrainTitle">Corporate Cybersecurity Training</h3>
+<p data-i18n="corpTrainDesc">Customized corporate training programs covering compliance frameworks, risk management, security best practices, and regulatory requirements for enterprise teams.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_ct1">Corporate</span><span data-edit="svcTag_ct2">Frameworks</span><span data-edit="svcTag_ct3">Best Practices</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Executive</span>
+<h3 data-i18n="execWorkTitle">Executive Workshops</h3>
+<p data-i18n="execWorkDesc">Board-level and executive workshops on cybersecurity governance, risk oversight, compliance strategy, and regulatory landscape briefings.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_ew1">Board</span><span data-edit="svcTag_ew2">Governance</span><span data-edit="svcTag_ew3">Strategy</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
+</div>
+<div class="service-card">
+<div class="service-card-top">
+<span class="service-framework">Technical</span>
+<h3 data-i18n="techTrainTitle">Technical Training</h3>
+<p data-i18n="techTrainDesc">Hands-on technical training on security controls, SIEM operations, vulnerability management, penetration testing methodologies, and security tool configuration.</p>
+</div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_tt1">Hands-On</span><span data-edit="svcTag_tt2">SIEM</span><span data-edit="svcTag_tt3">Tools</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
 </div>
 <div class="service-card">
 <div class="service-card-top">
 <span class="service-framework">Academic</span>
-<h3 data-i18n="currTitle">Cybersecurity Curriculum Development</h3>
+<h3 data-i18n="currTitle">Curriculum Development</h3>
 <p data-i18n="currDesc">Design and develop university-level and professional training curricula covering GRC, risk management, security architecture, and compliance frameworks. EC-Council certified.</p>
 </div>
-<div class="service-card-bottom"><div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Curriculum</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">EC-Council</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Training</span></div><a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+<div class="service-card-bottom">
+<div class="service-tags"><span data-edit="svcTag_cd1">Curriculum</span><span data-edit="svcTag_cd2">EC-Council</span><span data-edit="svcTag_cd3">Academic</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+</div>
 </div>
 </div>
 </div>
@@ -448,8 +545,8 @@ Certified
 <p data-i18n="vcisoDesc">Part-time or retainer-based executive guidance for organizations without a full-time CISO. Board-level strategy, risk oversight, compliance program management, incident leadership, and vendor risk oversight.</p>
 </div>
 <div class="service-card-bottom">
-<div class="service-tags"><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Strategy</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Board Reporting</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Risk Oversight</span><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Compliance</span></div>
-<a href="#contact" class="service-cta" data-i18n="inq">Inquire <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+<div class="service-tags"><span data-edit="vcTag1">Strategy</span><span data-edit="vcTag2">Board Reporting</span><span data-edit="vcTag3">Risk Oversight</span><span data-edit="vcTag4">Compliance</span></div>
+<a href="#contact" class="service-cta" data-i18n="bookConsult">Book a Consultation <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
 </div>
 </div>
 </div>
@@ -464,17 +561,17 @@ Certified
 <div class="section-header">
 <span class="section-label" data-i18n="fwLabel" data-edit="fwLabel">Framework Expertise</span>
 <h2 class="section-title" data-i18n="fwTitle" data-edit="fwTitle">Every Major Standard, One Integrated Approach</h2>
-<p class="section-desc" data-i18n="fwDesc" data-edit="fwDesc">I do not silo compliance. I build unified programs that satisfy multiple frameworks simultaneously â€” reducing duplication, cost, and confusion.</p>
+<p class="section-desc" data-i18n="fwDesc" data-edit="fwDesc">I do not silo compliance. I build unified programs that satisfy multiple frameworks simultaneously — reducing duplication, cost, and confusion.</p>
 </div>
 <div class="fw-grid">
-<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span><strong>PCI DSS</strong><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">v4.0.1</span></div>
-<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><strong>ISO 27001</strong><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">2022</span></div>
-<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><strong>SOC 2</strong><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Type I / II</span></div>
-<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/></svg></span><strong>NIST CSF</strong><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">2.0</span></div>
-<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg></span><strong>SAMA CSF</strong><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">1.0</span></div>
-<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><strong>NCA ECC</strong><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Saudi</span></div>
-<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></span><strong>CIS Controls</strong><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">v8</span></div>
-<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span><strong>ISO 27005</strong><span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Risk</span></div>
+<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span><strong>PCI DSS</strong><span data-edit="fw_pci">v4.0.1</span></div>
+<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><strong>ISO 27001</strong><span data-edit="fw_iso">2022</span></div>
+<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><strong>SOC 2</strong><span data-edit="fw_soc2">Type I / II</span></div>
+<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/></svg></span><strong>NIST CSF</strong><span data-edit="fw_nist">2.0</span></div>
+<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg></span><strong>SAMA CSF</strong><span data-edit="fw_sama">1.0</span></div>
+<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><strong>NCA ECC</strong><span data-edit="fw_nca">Saudi</span></div>
+<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></span><strong>CIS Controls</strong><span data-edit="fw_cis">v8</span></div>
+<div class="fw-item"><span class="fw-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span><strong>ISO 27005</strong><span data-edit="fw_27005">Risk</span></div>
 </div>
 </div>
 </section>
@@ -490,33 +587,28 @@ Certified
 <div class="ind-grid">
 <div class="ind-card">
 <div class="ind-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-<h3 data-i18n="indBank">Banking & Financial Services< data-edit="indBank"/h3>
+<h3 data-i18n="indBank" data-edit="indBank">Banking & Financial Services</h3>
 <p data-i18n="indBankDesc">PCI DSS, SAMA CSF, CBE regulations. Former bank supervisor. Led SNB compliance program.</p>
 </div>
 <div class="ind-card">
 <div class="ind-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1010 10 4 4 0 01-4-4 4 4 0 00-4-4"/><path d="M8.5 8.5a3.5 3.5 0 117 0"/></svg></div>
-<h3 data-i18n="indFintech">FinTech< data-edit="indFintech"/h3>
+<h3 data-i18n="indFintech" data-edit="indFintech">FinTech</h3>
 <p data-i18n="indFintechDesc">PCI DSS, SOC 2, ISO 27001. Startup-friendly, pragmatic compliance for fast-moving companies.</p>
 </div>
 <div class="ind-card">
 <div class="ind-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-<h3 data-i18n="indHealth">Healthcare< data-edit="indHealth"/h3>
+<h3 data-i18n="indHealth" data-edit="indHealth">Healthcare</h3>
 <p data-i18n="indHealthDesc">HIPAA, PCI DSS, SOC 2. Security reviews for digital health platforms and physiotherapy SaaS.</p>
 </div>
 <div class="ind-card">
 <div class="ind-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg></div>
-<h3 data-i18n="indGov">Government< data-edit="indGov"/h3>
-<p data-i18n="indGovDesc">NCA ECC, NIST CSF, ISO 27001. Architecture review of the Diriyah national project in Saudi Arabia.</p>
+<h3 data-i18n="indGov" data-edit="indGov">Government</h3>
+<p data-i18n="indGovDesc">NCA ECC, NIST CSF, ISO 27001. Architecture review of national development projects in Saudi Arabia.</p>
 </div>
 <div class="ind-card">
 <div class="ind-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
-<h3 data-i18n="indSaaS">SaaS & Technology< data-edit="indSaaS"/h3>
+<h3 data-i18n="indSaaS" data-edit="indSaaS">SaaS & Technology</h3>
 <p data-i18n="indSaaSDesc">SOC 2, ISO 27001, NIST. Evidence-driven, engineering-friendly compliance for tech organizations.</p>
-</div>
-<div class="ind-card">
-<div class="ind-card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
-<h3 data-i18n="indInsure">Insurance< data-edit="indInsure"/h3>
-<p data-i18n="indInsureDesc">SAMA CSF, PCI DSS, ISO 27001. Helped an insurance firm achieve SAMA compliance and regulatory approval.</p>
 </div>
 </div>
 </div>
@@ -534,12 +626,12 @@ Certified
 <div class="outcome-card">
 <div class="outcome-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
 <h4 data-i18n="out1">Reduced Compliance Gaps</h4>
-<p data-i18n="out1d">60-80% reduction in non-compliance findings across frameworks.</p>
+<p data-i18n="out1d">Methodical reduction of compliance findings across selected frameworks.</p>
 </div>
 <div class="outcome-card">
 <div class="outcome-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
 <h4 data-i18n="out2">Audit Readiness</h4>
-<p data-i18n="out2d">Satisfy regulators, QSAs, and external auditors on your first attempt.</p>
+<p data-i18n="out2d">Satisfy regulators, QSAs, and external auditors.</p>
 </div>
 <div class="outcome-card">
 <div class="outcome-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
@@ -549,17 +641,17 @@ Certified
 <div class="outcome-card">
 <div class="outcome-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
 <h4 data-i18n="out4">Regulatory Confidence</h4>
-<p data-i18n="out4d">Stay ahead of evolving regulatory requirements across jurisdictions.</p>
+<p data-i18n="out4d">Navigate evolving regulatory requirements with confidence.</p>
 </div>
 <div class="outcome-card">
 <div class="outcome-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
 <h4 data-i18n="out5">Team Capability</h4>
-<p data-i18n="out5d">Your team gains the skills and confidence to sustain compliance independently.</p>
+<p data-i18n="out5d">Your team gains the skills to sustain compliance independently.</p>
 </div>
 <div class="outcome-card">
 <div class="outcome-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
 <h4 data-i18n="out6">Faster Time to Compliance</h4>
-<p data-i18n="out6d">Proven methodology that reduces compliance cycle time by 30-50%.</p>
+<p data-i18n="out6d">Streamlined methodology that accelerates compliance timelines.</p>
 </div>
 </div>
 </div>
@@ -577,42 +669,42 @@ Certified
 <div class="method-step">
 <div class="method-step-num">01</div>
 <div class="method-step-content">
-<h4 data-i18n="step1">Assess</h4> data-edit="step1"
+<h4 data-i18n="step1" data-edit="step1">Assess</h4>
 <p data-i18n="step1d">Discovery, stakeholder interviews, document review, control testing, and gap analysis against your target framework(s).</p>
 </div>
 </div>
 <div class="method-step">
 <div class="method-step-num">02</div>
 <div class="method-step-content">
-<h4 data-i18n="step2">Plan</h4> data-edit="step2"
+<h4 data-i18n="step2" data-edit="step2">Plan</h4>
 <p data-i18n="step2d">Risk-based prioritization, resource estimation, roadmap development, and executive alignment on scope and timeline.</p>
 </div>
 </div>
 <div class="method-step">
 <div class="method-step-num">03</div>
 <div class="method-step-content">
-<h4 data-i18n="step3">Build</h4> data-edit="step3"
+<h4 data-i18n="step3" data-edit="step3">Build</h4>
 <p data-i18n="step3d">Policy development, control implementation, technical configuration, training, and evidence collection infrastructure.</p>
 </div>
 </div>
 <div class="method-step">
 <div class="method-step-num">04</div>
 <div class="method-step-content">
-<h4 data-i18n="step4">Operate</h4> data-edit="step4"
+<h4 data-i18n="step4" data-edit="step4">Operate</h4>
 <p data-i18n="step4d">Embedded support, monitoring, progress tracking, management reporting, and adjustments based on emerging risks.</p>
 </div>
 </div>
 <div class="method-step">
 <div class="method-step-num">05</div>
 <div class="method-step-content">
-<h4 data-i18n="step5">Audit</h4> data-edit="step5"
+<h4 data-i18n="step5" data-edit="step5">Audit</h4>
 <p data-i18n="step5d">Internal audit, pre-certification mock assessment, remediation, and readiness confirmation for external auditors.</p>
 </div>
 </div>
 <div class="method-step">
 <div class="method-step-num">06</div>
 <div class="method-step-content">
-<h4 data-i18n="step6">Sustain</h4> data-edit="step6"
+<h4 data-i18n="step6" data-edit="step6">Sustain</h4>
 <p data-i18n="step6d">Ongoing monitoring, quarterly reviews, continuous improvement, and re-assessment cycles to maintain compliance.</p>
 </div>
 </div>
@@ -629,11 +721,11 @@ Certified
 <h2 class="section-title" data-i18n="whyTitle" data-edit="whyTitle">Experience That Speaks for Itself</h2>
 <ul class="credentials-list">
 <li data-i18n="cred1"><strong>10+ years</strong> of GRC consulting across 5 countries</li>
-<li data-i18n="cred2"><strong>Former bank supervisor</strong> â€” National Bank of Egypt</li>
-<li data-i18n="cred3"><strong>EC-Council Certified Instructor</strong> â€” training the next generation of cybersecurity professionals</li>
-<li data-i18n="cred4"><strong>Curriculum developer</strong> â€” designed university-level programs for institutions in Canada</li>
-<li data-i18n="cred5"><strong>Multi-framework integration specialist</strong> â€” unified programs for organizations managing 3+ frameworks</li>
-<li data-i18n="cred6"><strong>Board-fluent communicator</strong> â€” executive summaries that drive decisions, not just inform</li>
+<li data-i18n="cred2"><strong>Former bank supervisor</strong> — National Bank of Egypt</li>
+<li data-i18n="cred3"><strong>EC-Council Certified Instructor</strong> — training the next generation of cybersecurity professionals</li>
+<li data-i18n="cred4"><strong>Curriculum developer</strong> — designed university-level programs for institutions in Canada</li>
+<li data-i18n="cred5"><strong>Multi-framework integration specialist</strong> — unified programs for organizations managing multiple frameworks</li>
+<li data-i18n="cred6"><strong>Board-fluent communicator</strong> — executive summaries that drive decisions, not just inform</li>
 </ul>
 </div>
 <div class="credentials-badges">
@@ -655,7 +747,7 @@ Certified
 <div class="badge-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
 <div>
 <strong data-i18n="badge3">International</strong>
-<span data-i18n="badge3d">SA Â· UAE Â· EG Â· USA Â· Canada</span>
+<span data-i18n="badge3d">SA · UAE · EG · USA · Canada</span>
 </div>
 </div>
 </div>
@@ -675,119 +767,100 @@ Certified
 <article class="cs-card cs-featured">
 <div class="cs-meta">
 <span class="cs-tag">PCI DSS</span>
-<span class="cs-location">Saudi Arabia</span>
+<span class="cs-location">Financial Services, Saudi Arabia</span>
 </div>
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Banking & Financial Services</h3>
-<p data-edit="stepDesc_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Led the PCI DSS compliance program for one of the largest banks in the Middle East.</p>
+<h3 data-edit="csTitle_pci">PCI DSS Compliance Program</h3>
+<p data-edit="csDesc_pci">Led the PCI DSS compliance program including gap analysis, remediation planning, evidence collection, and QSA audit coordination for a major financial institution.</p>
 <div class="cs-results">
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">60%</span> Gap Reduction</div>
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">100%</span> Audit Readiness</div>
+<div class="cs-result"><span class="cs-result-num" data-edit="csRes_pci1">Gap Analysis Delivered</span></div>
+<div class="cs-result"><span class="cs-result-num" data-edit="csRes_pci2">Audit Readiness Achieved</span></div>
 </div>
 </article>
 <article class="cs-card">
 <div class="cs-meta">
 <span class="cs-tag">Architecture</span>
-<span class="cs-location">Saudi Arabia</span>
+<span class="cs-location">Government, Saudi Arabia</span>
 </div>
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Government & Public Sector</h3>
-<p data-edit="stepDesc_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Full enterprise security architecture review for a high-profile national development project.</p>
+<h3 data-edit="csTitle_arch">Security Architecture Review</h3>
+<p data-edit="csDesc_arch">Performed a comprehensive enterprise security architecture review for a large-scale national development project.</p>
 <div class="cs-results">
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">30+</span> Findings</div>
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">75%</span> Critical Resolved</div>
+<div class="cs-result"><span class="cs-result-num" data-edit="csRes_arch1">Assessment Completed</span></div>
+<div class="cs-result"><span class="cs-result-num" data-edit="csRes_arch2">Recommendations Delivered</span></div>
 </div>
 </article>
 <article class="cs-card">
 <div class="cs-meta">
 <span class="cs-tag">SOC 2</span>
-<span class="cs-location">USA</span>
+<span class="cs-location">Technology Services, USA</span>
 </div>
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">NVITS</h3>
-<p data-edit="stepDesc_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">End-to-end SOC 2 readiness assessment and compliance roadmap for a US-based IT services firm.</p>
+<h3 data-edit="csTitle_soc2">SOC 2 Readiness Assessment</h3>
+<p data-edit="csDesc_soc2">Conducted end-to-end SOC 2 readiness assessment and developed compliance roadmap for a US-based technology services firm.</p>
 <div class="cs-results">
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">100%</span> TSC Covered</div>
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">On Track</span> Audit Path</div>
+<div class="cs-result"><span class="cs-result-num" data-edit="csRes_soc21">Compliance Roadmap Completed</span></div>
+<div class="cs-result"><span class="cs-result-num" data-edit="csRes_soc22">Audit Path Established</span></div>
 </div>
 </article>
 <article class="cs-card">
 <div class="cs-meta">
 <span class="cs-tag">SAMA CSF</span>
-<span class="cs-location">Saudi Arabia</span>
+<span class="cs-location">Insurance, Saudi Arabia</span>
 </div>
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Insurance Company</h3>
-<p data-edit="stepDesc_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">SAMA CSF implementation for a Saudi insurance company, resulting in regulatory approval.</p>
+<h3 data-edit="csTitle_sama">SAMA CSF Implementation</h3>
+<p data-edit="csDesc_sama">Led SAMA CSF compliance implementation including domain mapping, control testing, and evidence management for regulatory licensing.</p>
 <div class="cs-results">
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Passed</span> Regulatory Review</div>
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">License</span> Secured</div>
-</div>
-</article>
-<article class="cs-card">
-<div class="cs-meta">
-<span class="cs-tag">SOC 2</span>
-<span class="cs-location">USA</span>
-</div>
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">FinTech</h3>
-<p data-edit="stepDesc_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">SOC 2 Type I readiness and compliance program for a Silicon Valley mobile app company.</p>
-<div class="cs-results">
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Type I</span> Report Ready</div>
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Enterprise</span> Clients Enabled</div>
-</div>
-</article>
-<article class="cs-card">
-<div class="cs-meta">
-<span class="cs-tag">Healthcare</span>
-<span class="cs-location">Confidential</span>
-</div>
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Physiotherapy Platform</h3>
-<p data-edit="stepDesc_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Security review, risk assessment, and compliance roadmap for a Healthcare startup.</p>
-<div class="cs-results">
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">20+</span> Findings</div>
-<div class="cs-result"><span class="cs-result-num" data-edit="csResNum_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Roadmap</span> HIPAA/SOC 2</div>
+<div class="cs-result"><span class="cs-result-num" data-edit="csRes_sama1">Domain Mapping Completed</span></div>
+<div class="cs-result"><span class="cs-result-num" data-edit="csRes_sama2">Regulatory Review Supported</span></div>
 </div>
 </article>
 </div>
 </div>
 </section>
 
-<!-- ==================== TESTIMONIALS ==================== -->
+<!-- ==================== ENGAGEMENT HIGHLIGHTS ==================== -->
 <section class="section section-alt testimonials-section" id="testimonials">
 <div class="container">
 <div class="section-header">
-<span class="section-label" data-i18n="testLabel" data-edit="testLabel">Client Feedback</span>
-<h2 class="section-title" data-i18n="testTitle" data-edit="testTitle">What Clients Say</h2>
+<span class="section-label" data-i18n="testLabel" data-edit="testLabel">Engagement Highlights</span>
+<h2 class="section-title" data-i18n="testTitle" data-edit="testTitle">Selected Engagement Highlights</h2>
 </div>
-<div class="testimonials-carousel" id="testCarousel">
-<div class="testimonial-card">
-<div class="testimonial-quote">"Mohamed brought structure to our compliance program. His ability to bridge technical controls with business priorities made a measurable difference in our audit readiness."</div>
-<div class="testimonial-attribution">
-<div class="testimonial-avatar">C</div>
-<div>
-<strong>Compliance Director</strong>
-<span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Financial Services, Saudi Arabia</span>
+<div class="engagement-highlights-list">
+<div class="engagement-highlight-item">
+<span class="highlight-check">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+</span>
+<span data-i18n="eh1">Led PCI DSS compliance program for a major financial institution in Saudi Arabia</span>
+</div>
+<div class="engagement-highlight-item">
+<span class="highlight-check">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+</span>
+<span data-i18n="eh2">Performed enterprise security architecture review for a national development project</span>
+</div>
+<div class="engagement-highlight-item">
+<span class="highlight-check">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+</span>
+<span data-i18n="eh3">Conducted SOC 2 readiness assessment for a US-based technology company</span>
+</div>
+<div class="engagement-highlight-item">
+<span class="highlight-check">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+</span>
+<span data-i18n="eh4">Developed cybersecurity curriculum for a Canadian educational institution</span>
+</div>
+<div class="engagement-highlight-item">
+<span class="highlight-check">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+</span>
+<span data-i18n="eh5">Delivered SAMA CSF compliance program for a Saudi insurance company</span>
+</div>
+<div class="engagement-highlight-item">
+<span class="highlight-check">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+</span>
+<span data-i18n="eh6">EC-Council Certified Instructor delivering professional cybersecurity training</span>
 </div>
 </div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-quote">"The architecture review for our national project was thorough, actionable, and delivered ahead of schedule. Exactly the level of rigor we needed."</div>
-<div class="testimonial-attribution">
-<div class="testimonial-avatar">P</div>
-<div>
-<strong>Program Manager</strong>
-<span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Government Entity, Saudi Arabia</span>
-</div>
-</div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-quote">"Working with Mohamed was a great experience. He helped us navigate the SOC 2 process with clarity and pragmatism. I'd recommend him to any startup going through compliance."</div>
-<div class="testimonial-attribution">
-<div class="testimonial-avatar">T</div>
-<div>
-<strong>CTO</strong>
-<span data-edit="svcTag_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">SaaS Company, USA</span>
-</div>
-</div>
-</div>
-</div>
-<div class="carousel-dots" id="carouselDots"></div>
 </div>
 </section>
 
@@ -869,8 +942,8 @@ Certified
 </div>
 </section>
 
-<!-- ==================== SUBSCRIPTION PLANS ==================== -->
-<section class="section section-alt subscription-section" id="subscription">
+<!-- ==================== SUBSCRIPTION PLANS (HIDDEN — Future SaaS) ==================== -->
+<section class="section section-alt subscription-section" id="subscription" style="display:none;">
 <div class="container">
 <div class="section-header">
 <span class="section-label" data-i18n="subSecLabel">Subscription</span>
@@ -880,9 +953,9 @@ Certified
 <div class="sub-landing-grid">
 <div class="sub-landing-card">
 <div class="sub-landing-header">
-<h3 data-i18n="subBasicName">Basic</h3> data-edit="subBasicName"
-<div class="sub-landing-price" data-edit="subPrice_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">$1<span data-i18n="perMonth">/mo</span></div>
-<p data-i18n="subBasicDesc">Single profile listing</p> data-edit="subBasicDesc"
+<h3 data-i18n="subBasicName" data-edit="subBasicName">Basic</h3>
+<div class="sub-landing-price" data-edit="subPrice_basic">$1<span data-i18n="perMonth">/mo</span></div>
+<p data-i18n="subBasicDesc" data-edit="subBasicDesc">Single profile listing</p>
 </div>
 <ul class="sub-landing-features">
 <li data-i18n="subBasicF1">Portfolio listing in directory</li>
@@ -897,9 +970,9 @@ Certified
 <div class="sub-landing-card sub-landing-featured">
 <div class="sub-landing-badge" data-i18n="popular">Most Popular</div>
 <div class="sub-landing-header">
-<h3 data-i18n="subProName">Professional</h3> data-edit="subProName"
-<div class="sub-landing-price" data-edit="subPrice_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">$1<span data-i18n="perMonth">/mo</span></div>
-<p data-i18n="subProDesc">Full portfolio management</p> data-edit="subProDesc"
+<h3 data-i18n="subProName" data-edit="subProName">Professional</h3>
+<div class="sub-landing-price" data-edit="subPrice_pro">$1<span data-i18n="perMonth">/mo</span></div>
+<p data-i18n="subProDesc" data-edit="subProDesc">Full portfolio management</p>
 </div>
 <ul class="sub-landing-features">
 <li data-i18n="subProF1">Everything in Basic</li>
@@ -915,9 +988,9 @@ Certified
 </div>
 <div class="sub-landing-card">
 <div class="sub-landing-header">
-<h3 data-i18n="subEntName">Enterprise</h3> data-edit="subEntName"
-<div class="sub-landing-price" data-edit="subPrice_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">$1<span data-i18n="perMonth">/mo</span></div>
-<p data-i18n="subEntDesc">Multi-profile & team</p> data-edit="subEntDesc"
+<h3 data-i18n="subEntName" data-edit="subEntName">Enterprise</h3>
+<div class="sub-landing-price" data-edit="subPrice_ent">$1<span data-i18n="perMonth">/mo</span></div>
+<p data-i18n="subEntDesc" data-edit="subEntDesc">Multi-profile & team</p>
 </div>
 <ul class="sub-landing-features">
 <li data-i18n="subEntF1">Everything in Professional</li>
@@ -942,19 +1015,16 @@ Certified
 <div class="contact-intro">
 <span class="section-label" data-i18n="contactLabel" data-edit="contactLabel">Contact</span>
 <h2 class="section-title" data-i18n="contactTitle" data-edit="contactTitle">Let's Start a Conversation</h2>
-<p class="contact-desc" data-i18n="contactDesc" data-edit="contactDesc">Whether you need a gap assessment, full compliance program, or executive advisory â€” I'm ready to help.</p>
+<p class="contact-desc" data-i18n="contactDesc" data-edit="contactDesc">Whether you need a gap assessment, full compliance program, or executive advisory — I'm ready to help.</p>
 <div class="contact-details">
 <div class="contact-detail">
 <span class="contact-detail-label" data-i18n="emailLabel">Email</span>
+<!-- Replace with actual email -->
 <a href="mailto:contact@domain.com" class="contact-detail-value" data-edit="contactEmail">contact@domain.com</a>
 </div>
 <div class="contact-detail">
-<span class="contact-detail-label" data-i18n="phoneLabel">Phone</span>
-<span class="contact-detail-value" data-edit="contactPhone">+xxx-xxx-xxxx</span>
-</div>
-<div class="contact-detail">
 <span class="contact-detail-label" data-i18n="locationLabel">Location</span>
-<span class="contact-detail-value" data-edit="contactLocation">Riyadh, Saudi Arabia</span>
+<span class="contact-detail-value" data-edit="contactLocation">Jeddah, Saudi Arabia</span>
 </div>
 <div class="contact-detail">
 <span class="contact-detail-label" data-i18n="availability">Availability</span>
@@ -976,6 +1046,14 @@ Certified
 <label for="formCompany" data-i18n="formCompany">Company</label>
 </div>
 <div class="form-group">
+<select id="formCompanySize">
+<option value="" data-i18n="formCompanySize">Company Size</option>
+<option value="small">Small</option>
+<option value="medium">Medium</option>
+<option value="enterprise">Enterprise</option>
+</select>
+</div>
+<div class="form-group">
 <select id="formService">
 <option value="" data-i18n="formSelect">Select Service Interest</option>
 <option>PCI DSS Compliance</option>
@@ -989,6 +1067,17 @@ Certified
 <option>vCISO</option>
 <option>Training & Awareness</option>
 <option>Other</option>
+</select>
+</div>
+<div class="form-group">
+<select id="formEngagementType">
+<option value="" data-i18n="formEngagementType">Preferred Engagement Type</option>
+<option value="consulting">Consulting Project</option>
+<option value="assessment">Security Assessment</option>
+<option value="compliance">Compliance Readiness</option>
+<option value="training">Training</option>
+<option value="vciso">vCISO</option>
+<option value="other">Other</option>
 </select>
 </div>
 <div class="form-group">
@@ -1006,8 +1095,8 @@ Certified
 <div class="container">
 <div class="footer-top">
 <div class="footer-brand">
-<h4 data-edit="footerBrand">M.A.A. Cybersecurity & GRC</h4>
-<p class="footer-tagline" data-i18n="tagline" data-edit="tagline">Govern with confidence.</p>
+<h4 data-edit="footerBrand">Mohamed Ashraf — Principal Cybersecurity & GRC Consultant</h4>
+<p class="footer-tagline" data-i18n="tagline" data-edit="tagline">Cybersecurity | GRC | Compliance | Security Assessments | Training</p>
 <p class="footer-desc" data-i18n="footerDesc" data-edit="footerDesc">Enterprise cybersecurity governance, risk, and compliance consulting across the Middle East and North America.</p>
 </div>
 <div class="footer-links">
@@ -1026,27 +1115,26 @@ Certified
 <a href="#about" data-i18n="about">About</a>
 <a href="#case-studies" data-i18n="caseStudies">Case Studies</a>
 <a href="#insights" data-i18n="insights">Insights</a>
-<a href="#subscription" data-i18n="plans">Plans</a>
 <a href="#contact" data-i18n="contact">Contact</a>
 </div>
 <div class="footer-col">
 <h5 data-i18n="connect">Connect</h5>
 <div class="footer-social">
 <a href="#" aria-label="LinkedIn">in</a>
-<a href="#" aria-label="Email">@</a>
 </div>
-<p class="footer-note" data-i18n="footerNote">Based in Riyadh, serving clients worldwide.</p>
+<p class="footer-note" data-i18n="footerNote">Based in Saudi Arabia, serving clients worldwide.</p>
 </div>
 </div>
 </div>
 <div class="footer-bottom">
-<p data-edit="stepDesc_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">&copy; 2024-2025 Mohamed Ashraf Abd El-Aziz. All rights reserved.</p>
+<p data-edit="footerCopyright">&copy; 2024-2025 Mohamed Ashraf Abd El-Aziz. All rights reserved.</p>
 <p class="footer-legal" data-i18n="footerLegal">This site is for informational purposes. Client references are disclosed with permission or anonymized.</p>
 </div>
 </div>
 </footer>
 
-<!-- ==================== LOGIN MODAL ==================== -->
+<!-- ==================== LOGIN MODAL (HIDDEN — Future SaaS) ==================== -->
+<div style="display:none;">
 <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true">
 <div class="modal">
 <div class="modal-header">
@@ -1070,8 +1158,10 @@ Certified
 </div>
 </div>
 </div>
+</div>
 
-<!-- ==================== SUBSCRIPTION MODAL ==================== -->
+<!-- ==================== SUBSCRIPTION MODAL (HIDDEN — Future SaaS) ==================== -->
+<div style="display:none;">
 <div class="modal-overlay" id="subModal" role="dialog" aria-modal="true">
 <div class="modal modal-sm">
 <div class="modal-header">
@@ -1092,8 +1182,10 @@ Certified
 </form>
 </div>
 </div>
+</div>
 
-<!-- ==================== ADMIN PANEL ==================== -->
+<!-- ==================== ADMIN PANEL (HIDDEN — Future SaaS) ==================== -->
+<div style="display:none;">
 <div class="admin-overlay" id="adminPanel">
 <div class="admin-sidebar">
 <div class="admin-logo">M.A.A. Admin</div>
@@ -1114,76 +1206,70 @@ Certified
 <span id="adminDateTime"></span>
 </div>
 <div class="admin-content">
-<p data-edit="stepDesc_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Manage all content in one place. Changes save automatically.</p>
+<p data-edit="adminIntroDesc">Manage all content in one place. Changes save automatically.</p>
 <div class="admin-grid">
 <div class="admin-card">
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Hero Title</h3>
-<input type="text" value="Cybersecurity That Means Business" class="admin-input" data-key="heroTitle">
+<h3 data-edit="adminHeroTitle">Hero Title</h3>
+<input type="text" value="Cybersecurity & GRC Consulting for Secure, Compliant, and Resilient Organizations" class="admin-input" data-key="heroTitle">
 </div>
 <div class="admin-card">
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Hero Subtitle</h3>
-<input type="text" value="Enterprise governance, risk, and compliance consulting..." class="admin-input" data-key="heroSub">
+<h3 data-edit="adminHeroSub">Hero Subtitle</h3>
+<input type="text" value="Helping financial institutions, SaaS companies, healthcare organizations, government entities, and enterprises strengthen cybersecurity..." class="admin-input" data-key="heroSub">
 </div>
 <div class="admin-card">
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Stat â€” Years</h3>
+<h3 data-edit="adminStatYears">Stat — Years</h3>
 <select class="admin-input"><option>10+ Years</option><option>15+ Years</option><option>20+ Years</option></select>
 </div>
 <div class="admin-card">
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Stat â€” Frameworks</h3>
-<select class="admin-input"><option>25+ Frameworks</option><option>30+ Frameworks</option></select>
+<h3 data-edit="adminAboutSummary">About Summary</h3>
+<textarea class="admin-input" rows="3" data-key="aboutSummary">Mohamed Ashraf is a Principal Cybersecurity & GRC Consultant with over 10 years of experience...</textarea>
 </div>
 <div class="admin-card">
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">About Summary</h3>
-<textarea class="admin-input" rows="3" data-key="aboutSummary">I help organizations solve their most complex cybersecurity and compliance challenges...</textarea>
-</div>
-<div class="admin-card">
-<h3 data-edit="csTitle_$([System.IO.Path]::GetRandomFileName().Replace(".",""))">Contact Email</h3>
+<h3 data-edit="adminContactEmail">Contact Email</h3>
 <input type="email" value="contact@domain.com" class="admin-input" data-key="contactEmail">
 </div>
 </div>
 </div>
 </div>
 </div>
+</div>
 
-    <a href="#" class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">â†‘</a>
+<!-- ==================== PAYMENT MODAL (HIDDEN — Future SaaS) ==================== -->
+<div style="display:none;">
+<div class="modal-overlay" id="paymentModal">
+<div class="modal-box">
+<button class="modal-close" id="paymentModalClose" aria-label="Close">&times;</button>
+<div class="modal-header">
+<h2 data-i18n="subModalTitle">Subscribe</h2>
+<p id="paymentModalDesc">Complete your subscription to <strong id="paymentPlanName">Professional</strong> — <span id="paymentPlanPrice">$79</span>/mo</p>
+</div>
+<form id="paymentForm" autocomplete="off">
+<div class="form-group">
+<label for="paymentName" data-i18n="formName">Full Name</label>
+<input type="text" id="paymentName" class="form-control" required>
+</div>
+<div class="form-group">
+<label for="paymentEmail" data-i18n="formEmail">Email Address</label>
+<input type="email" id="paymentEmail" class="form-control" required placeholder="you@domain.com">
+</div>
+<div class="form-group">
+<label for="paymentCompany" data-i18n="formCompany">Company (optional)</label>
+<input type="text" id="paymentCompany" class="form-control" placeholder="Acme Corp">
+</div>
+<input type="hidden" id="paymentPlan" value="professional">
+<input type="hidden" id="paymentAmount" value="79">
+<button type="submit" class="btn btn-primary btn-block" id="paymentSubmitBtn">
+<span data-i18n="subPayBtn">Subscribe Now — $79/mo</span>
+</button>
+<p class="form-footnote" data-i18n="subFootnote">Secure payment via Stripe. No card details stored here.</p>
+</form>
+<div id="paymentResultMsg" class="form-msg" style="display:none;"></div>
+</div>
+</div>
+</div>
 
-    <!-- ==================== PAYMENT SUBSCRIPTION MODAL ==================== -->
-    <div class="modal-overlay" id="paymentModal">
-      <div class="modal-box">
-        <button class="modal-close" id="paymentModalClose" aria-label="Close">&times;</button>
-        <div class="modal-header">
-          <h2 data-i18n="subModalTitle">Subscribe</h2>
-          <p id="paymentModalDesc">Complete your subscription to <strong id="paymentPlanName">Professional</strong> â€” <span id="paymentPlanPrice">$79</span>/mo</p>
-        </div>
-        <form id="paymentForm" autocomplete="off">
-          <div class="form-group">
-            <label for="paymentName" data-i18n="formName">Full Name</label>
-            <input type="text" id="paymentName" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="paymentEmail" data-i18n="formEmail">Email Address</label>
-            <input type="email" id="paymentEmail" class="form-control" required placeholder="you@domain.com">
-          </div>
-          <div class="form-group">
-            <label for="paymentCompany" data-i18n="formCompany">Company (optional)</label>
-            <input type="text" id="paymentCompany" class="form-control" placeholder="Acme Corp">
-          </div>
-          <input type="hidden" id="paymentPlan" value="professional">
-          <input type="hidden" id="paymentAmount" value="79">
-          <button type="submit" class="btn btn-primary btn-block" id="paymentSubmitBtn">
-            <span data-i18n="subPayBtn">Subscribe Now â€” $79/mo</span>
-          </button>
-          <p class="form-footnote" data-i18n="subFootnote">Secure payment via Stripe. No card details stored here.</p>
-        </form>
-        <div id="paymentResultMsg" class="form-msg" style="display:none;"></div>
-      </div>
-    </div>
+<a href="#" class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</a>
 
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
