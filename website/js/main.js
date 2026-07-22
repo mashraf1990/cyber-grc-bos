@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.querySelectorAll('[data-edit]').forEach(el => {
       if (el.tagName === 'IMG') {
-        const saved = localStorage.getItem('admin_navPhoto');
+        const saved = localStorage.getItem('admin_' + el.dataset.edit);
         if (saved) el.src = saved;
         return;
       }
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   const reader = new FileReader();
                   reader.onload = (ev) => {
                     el.src = ev.target.result;
-                    localStorage.setItem('admin_navPhoto', ev.target.result);
+                    localStorage.setItem('admin_' + el.dataset.edit, ev.target.result);
                   };
                   reader.readAsDataURL(file);
                 };
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       document.querySelectorAll('[data-edit]').forEach(el => {
         if (el.tagName === 'IMG') {
-          const saved = localStorage.getItem('admin_navPhoto');
+          const saved = localStorage.getItem('admin_' + el.dataset.edit);
           if (saved) el.src = saved;
           return;
         }
