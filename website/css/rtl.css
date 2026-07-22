@@ -1,57 +1,19 @@
-/* ===== RTL (Arabic) Overrides v2.0 ===== */
+/* ===== RTL (Arabic) Overrides v3.0 ===== */
 
 [dir="rtl"] .nav-links { flex-direction: row-reverse; }
 [dir="rtl"] .nav-actions { flex-direction: row-reverse; }
 [dir="rtl"] .hero-ctas { justify-content: flex-start; flex-direction: row-reverse; }
 [dir="rtl"] .hero-content { text-align: right; }
 [dir="rtl"] .hero-subtitle { margin-left: 0; }
-[dir="rtl"] .hero-trust { justify-content: flex-end; }
-
-[dir="rtl"] .about-layout { direction: rtl; }
-[dir="rtl"] .about-content { text-align: right; }
-
-[dir="rtl"] .service-tabs { flex-direction: row-reverse; }
-
-[dir="rtl"] .contact-layout { direction: rtl; }
-[dir="rtl"] .contact-form label { left: auto; right: 14px; }
-[dir="rtl"] .contact-form input:focus ~ label,
-[dir="rtl"] .contact-form input:not(:placeholder-shown) ~ label,
-[dir="rtl"] .contact-form textarea:focus ~ label,
-[dir="rtl"] .contact-form textarea:not(:placeholder-shown) ~ label {
-  left: auto; right: 10px;
-}
-
-[dir="rtl"] .footer-links { direction: rtl; }
-[dir="rtl"] .method-step { direction: rtl; }
-[dir="rtl"] .faq-question { text-align: right; }
-[dir="rtl"] .faq-question svg { transform: rotate(180deg); }
-[dir="rtl"] .faq-question[aria-expanded="true"] svg { transform: rotate(0deg); }
-
-[dir="rtl"] .testimonial-quote { padding-left: 0; padding-right: 24px; }
-[dir="rtl"] .testimonial-quote::before { left: auto; right: 0; }
-
-[dir="rtl"] .admin-sidebar { right: 0; left: auto; }
-[dir="rtl"] .admin-main { margin-right: 280px; margin-left: 0; }
-[dir="rtl"] .admin-nav-item { text-align: right; }
-
-[dir="rtl"] .modal-options { text-align: right; }
-[dir="rtl"] .modal-option { text-align: right; }
-[dir="rtl"] .modal-close { right: auto; left: -12px; }
-
 [dir="rtl"] .nav-links a::after { left: auto; right: 0; }
-[dir="rtl"] .trusted-logos { flex-direction: row-reverse; }
-
-[dir="rtl"] .highlight-card { direction: rtl; }
-[dir="rtl"] .badge-card { direction: rtl; }
-
-[dir="rtl"] .service-grid { direction: rtl; }
-[dir="rtl"] .ind-grid { direction: rtl; }
+[dir="rtl"] .footer-links { direction: rtl; }
+[dir="rtl"] .services-grid { direction: rtl; }
+[dir="rtl"] .exp-grid { direction: rtl; }
 [dir="rtl"] .cs-grid { direction: rtl; }
-[dir="rtl"] .outcomes-grid { direction: rtl; }
 [dir="rtl"] .insights-grid { direction: rtl; }
-[dir="rtl"] .fw-grid { direction: rtl; }
+[dir="rtl"] .why-grid { direction: rtl; }
+[dir="rtl"] .cta-actions { flex-direction: row-reverse; }
 
 @media (max-width: 768px) {
   [dir="rtl"] .nav-links.open { left: auto; right: 0; }
-  [dir="rtl"] .admin-main { margin-right: 0; }
 }
